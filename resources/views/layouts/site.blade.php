@@ -50,11 +50,13 @@
         // Scrolling Effect
 
         $(window).on("scroll", function() {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('black');
+            if ($(window).scrollTop() > 50) {
+                $('nav').addClass('scrollMenu');
             } else {
-                $('nav').removeClass('black');
+                $('nav').removeClass('scrollMenu');
             }
+
+            console.log(window.pageYOffset);
         })
     </script>
 </body>
