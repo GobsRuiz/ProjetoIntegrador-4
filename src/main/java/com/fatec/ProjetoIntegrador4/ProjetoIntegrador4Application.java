@@ -1,4 +1,4 @@
-package com.fatec.ProjetoIntegrador4;
+package com.fatec.projetoIntegrador4;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
