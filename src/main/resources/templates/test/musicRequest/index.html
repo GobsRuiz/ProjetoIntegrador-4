@@ -1,0 +1,61 @@
+<!-- Include layout -->
+<th:block th:insert="pages/components/layout"></th:block>
+
+<!-- Include header -->
+<th:block th:insert="pages/components/header"></th:block>
+
+<main>
+    <h1>
+        Pedidos de música
+    </h1>
+
+    <div th:each="musicRequest : ${musicRequests}">
+        <p>
+            Nome: &nbsp; <span th:text="${musicRequest.name}"></span>
+            <br>
+            Cidade: &nbsp; <span th:text="${musicRequest.city}"></span>
+            <br>
+            Música: &nbsp; <span th:text="${musicRequest.music}"></span>
+            <br>
+            Mensagem: &nbsp; <span th:text="${musicRequest.message}"></span>
+        </p>
+        
+        <p>
+            <a th:href="@{/teste/pedidos-de-musica/deletar/{id}(id=${musicRequest.id})}">
+                Deletar
+            </a>
+        </p>
+
+        <hr>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>
+        Aoba, cadastro dos pedidos de música
+    </h2>
+
+    <form action="/teste/pedidos-de-musicas/cadastrar" method="POST">
+        <input type="text" name="name" placeholder="Seu nome">
+        <br>
+        <input type="text" name="city" placeholder="Sua cidade">
+        <br>
+        <input type="text" name="music" placeholder="Música">
+        <br>
+        <textarea name="message" id="" cols="30" rows="10" placeholder="Mensagem"></textarea>
+        <br>
+
+        <button>
+            Fazer pedido
+        </button>
+    </form>
+
+    <!-- Validation message -->
+    <span th:text="${error}">
+    </span>
+</main>
+
+<!-- Include footer -->
+<th:block th:insert="pages/components/footer"></th:block>
