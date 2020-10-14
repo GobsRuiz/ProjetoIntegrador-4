@@ -16,7 +16,7 @@ public class MusicRequest {
     private Long id;
 
     @NotBlank 
-    @Length(min = 5, max = 50)
+    @Length(min = 3, max = 50)
     private String name;
 
     @NotBlank

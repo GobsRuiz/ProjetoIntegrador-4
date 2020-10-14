@@ -40,10 +40,10 @@ public class MusicRequestController {
 
     // Store
     @PostMapping("/teste/pedidos-de-musicas/cadastrar")
-    public String store(MusicRequest musicRequest, BindingResult result, RedirectAttributes attributes)
+    public String store(@Valid MusicRequest musicRequest, BindingResult result, RedirectAttributes attributes)
     {
         if(result.hasErrors()){
-            attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
+            attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
             return "redirect:/teste/pedidos-de-musicas";
         }
 
@@ -55,7 +55,7 @@ public class MusicRequestController {
 
     // delete
     @RequestMapping("/teste/pedidos-de-musica/deletar/{id}")
-    public String delete(@PathVariable("id") Long id)
+    public String destroy(@PathVariable("id") Long id)
     {
         musicService.delete(id);
         return "redirect:/teste/pedidos-de-musicas";
