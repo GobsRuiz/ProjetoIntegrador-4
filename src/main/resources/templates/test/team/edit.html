@@ -10,24 +10,20 @@
     </a>
 
     <h1>
-        Cadastro de Equipe
+        Editar membro da equipe: <span th:text="${team.id}"></span>
     </h1>
 
-    <form action="/teste/equipe/cadastrar" method="POST">
-        <input type="text" name="name" placeholder="Nome">
+    <form th:action="@{/teste/equipe/editar/{id}(id=${team.id})}"  th:object="${team}" method="POST">
+        <input type="text" th:field="*{name}" placeholder="Nome">
         
         <br>
 
-        <input type="text" name="role" placeholder="Função">
+        <input type="text" th:field="*{role}" placeholder="Função">
 
         <button>
             Enviar
         </button>
     </form>
-
-    <!-- Validation message -->
-    <p th:text="${error}">
-    </p>
 </main>
 
 <!-- Include footer -->

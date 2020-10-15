@@ -4,8 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class testeController {
+public class TesteController {
     
+    // Index
     @GetMapping("/teste")
     public String index()
     {

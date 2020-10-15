@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 // @RequestMapping("/teste/contato")
 public class ContactController {
 
-    // Repository
+    // Service
     @Autowired
     private ContactService contactService;
     

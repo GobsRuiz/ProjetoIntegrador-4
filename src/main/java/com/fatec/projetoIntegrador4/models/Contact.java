@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,23 +13,23 @@ public class Contact {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
     
     @NotNull
-    @Size(min = 5, max = 50)
-    public String name;
+    @Size(min = 3, max = 50)
+    private String name;
 
     @NotNull
     @Email
-    public String email;
+    private String email;
 
     @NotNull
     @Size(min = 10, max = 300)
-    public String message;
+    private String message;
 
     @NotNull
     @Size(min = 8, max = 13)
-    public String phone;
+    private String phone;
 
     public Long getId() {
         return id;
