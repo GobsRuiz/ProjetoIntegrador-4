@@ -1,14 +1,163 @@
-<!-- Include layout -->
-<th:block th:insert="pages/components/layout"></th:block>
-
 <!-- Include header -->
 <th:block th:insert="pages/components/header"></th:block>
 
-<main>
-    <h1>
-        AOBA
-    </h1>
+ <!-- Carousel -->
+ <section id="single-item">
+    <div id="carousel-images">
+        <div class="carousel-images-div">
+            <img src="img-carrossel/Banner1_jarry.jpg" alt="">
+        </div>
+        <div class="carousel-images-div">
+            <img src="img-carrossel/bannerAlok.jpg" alt="">
+        </div>
+        <div class="carousel-images-div">
+            <img src="img-carrossel/jardineira1.jpg" alt="">
+        </div>
+
+    </div>
+</section>
+
+<!-- ZAP DA CANAL -->
+<main class="wrapper-section whatsapp-section">
+    <div class="content" title="Texto para mandar uma menssagem para a canal um">
+        <h2 class="title">Peça sua música!</h2>
+        <hr class="border" />
+        <p class="description-text">Converse com a gente da <span style="color:#003399; font-weight: bold;">Canal Um F.M! </span>peça músicas, relate problemas, participe da programação e concorra prêmios! áudio ou texto? tanto faz! sinta-se a vontade para mandar um whatsapp
+            para a Canal! nosso número é:
+            <span style="color:#003399;; font-weight: bold;">(16)99345-6789 </span>.
+        </p>
+
+        <form action="#" method="post">
+
+            <input type="text" placeholder="Nome" name="" class="nome" required minlength="3" />
+            <input type="email" placeholder="E-mail" name="" class="email" required/>
+            <textarea name="" class="nome" cols="30" rows="10" required></textarea>
+
+            <button class="" type="submit">Enviar</button>
+        </form>
+
+
+    </div>
+    <!-- foto -->
+    <div class="wrapper-div">
+
+        <img src="../../img/message.svg" alt="" class="photo">
+
+    </div>
 </main>
+<!-- BAIXE O APP -->
+<section class="wrapper-section">
+
+    <div class="content" title="Texto para baixar o aplicativo da canal um">
+        <h2 class="title">Baixe nosso app!</h2>
+        <hr class="border" />
+        <p class="description-text">Agora você pode ficar por dentro de tudo que acontece aqui na <span style="color:#003399; font-weight: bold;">Canal Um F.M! </span>receba notificações sobre notícias, programação semanal, eventos e muito mais diretamente do seu celular!</p>
+        <a href="#" class="blog-post-read"><i class="fab fa-google-play"></i> Baixe agora</a>
+    </div>
+    <div class="wrapper-div">
+        <img class="photo" src="img/img-app-home.svg" alt="Ilustração de um celular" />
+    </div>
+
+</section>
+
+<!-- PLAYLIST -->
+<section class="wrapper-section playlist-section">
+    <div class="wrapper-div">
+        <img class="photo-jpg" src="img/listen.jpg" alt="Garota ouvindo música" />
+
+    </div>
+    <div class="content">
+        <!-- playlist agora -->
+        <h2 class="title">Agora</h2>
+        <hr class="border" />
+        <div class="container-timeline">
+            <div class="content-timeline color1">
+                <h2> 08h30 á 11h30</h2>
+                <p>Manhã Alto Astral</p>
+            </div>
+
+        </div>
+        <!--  -->
+
+        <!-- playlist depois -->
+        <h2 class="title">Depois</h2>
+        <hr class="border" />
+        <div class="content-timeline color2 ">
+            <h2> 11h30 á 13h00
+            </h2>
+            <p>Canal Um É Notícia (2º Edição)</p>
+        </div>
+
+    </div>
+    <!-- foto -->
+
+    </div>
+
+
+</section>
+
+<!-- NOTICIAS -->
+<section class="wrapper-section">
+    <div class="content">
+
+        <h2 class="title"> notícias</h2>
+        <p class="blog-post-text">
+        </p>
+        <hr class="border" />
+    </div>
+</section>
+<div class="container">
+
+    <div class="row">
+        <div class="card">
+            <div class="card-header">
+
+            </div>
+            <div class="card-body">
+                <h3>Cientistas encontram parasita preservado dentro de ossos de dinossauro</h3>
+                <p>
+                    Pesquisadores da UFRN, da UFSCar e da Unicamp identificaram microrganismo em 'dino zumbi' que sofria de osteomielite aguda, doença que até hoje afeta animais e também humanos.
+
+                </p>
+                <a href="noticias.html" class="blog-post-read">Ler mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <h3>Milícia controla 57% da área do Rio e o tráfico,15%, aponta estudo</h3>
+                <p>
+                    Mapa dos Grupos Armados do Rio, lançado nesta segunda (19), aponta que três facções do tráfico juntas dominam 15,4% do território da capital.
+
+                </p>
+                <a href="noticias.html" class="blog-post-read">Ler mais</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <h3> Até que a quarentena os separe: os casais que romperam na pandemia</h3>
+                <p>
+                    Jade Magalhães anunciou fim do noivado com Luan Santana dez dias depois do divórcio de Gusttavo Lima e Andressa Suita. Buscas por separações aumentaram no Brasil desde o início do isolamento.
+
+                </p>
+                <a href="noticias.html" class="blog-post-read">Ler mais</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Social media -->
+<div class="icon-bar">
+    <a href="https://www.facebook.com/canalumfm" class="facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://twitter.com/canalum" class="twitter"><i class="fa fa-twitter"></i></a>
+    <a href="canalum@canalum.fm.br" class="google"><i class="fa fa-google"></i></a>
+    <a href="https://www.facebook.com/canalumfm" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/channel/UCbQIBUcBJX9AVKka1mFNo9Q" class="youtube"><i class="fa fa-youtube"></i></a>
+</div>
 
 <!-- Include footer -->
 <th:block th:insert="pages/components/footer"></th:block>

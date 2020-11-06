@@ -1,2 +1,72 @@
-header
-<hr>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <!-- Slick js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" />
+    <link rel="stylesheet" media="screen" th:href="@{/slickjs/slick-theme.css}"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" />
+
+    <!-- Carousel -->
+    <link rel="stylesheet" media="screen" th:href="@{/css/carousel.css}"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" media="screen" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" media="screen" th:href="@{/css/responsive.css}"/>
+
+
+    <title>Canal Um F.M</title>
+</head>
+
+<body>
+    <header>
+        <nav class="desktop">
+            <ul>
+                <a href="/"><img src="img/logo.png" alt="logotipo da canal um" class="logo"> </a>
+                <li class="items items-hover" id="init"><a href="/" title="Início">Início</a></li>
+                <li class="items items-hover" id="about"><a href="/sobre" title="A rádio">A rádio</a></li>
+                <li class="items items-hover" id="prjs"><a href="/equipe" title="Equipe">Equipe</a></li>
+                <li class="items items-hover" id="evts"><a href="/programacao" title="Programação">Programação</a></li>
+                <li class="items items-hover" id="cont"><a href="/noticias" title="Notícias">Notícias</a></li>
+                <li class="items items-hover" id="cont"><a href="/top20" title="TOP20">TOP20</a></li>
+                <li class="items items-hover" id="cont"><a href="/contato" title="Contato ">Contato</a></li>
+
+
+            </ul>
+
+        </nav>
+        <div class="menu-resp">
+            <a href="#menu" class="btnMenu btnMenu_open">Menu</a>
+            <ul id="menu" class="menu">
+                <li class="btnMenu btnMenu_close">Sair</li>
+                <li class="menu-item">
+                    <a href="/" class="menu-item-action" title="Início">Início</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/sobre" class="menu-item-action" title="A rádio">A rádio</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/equipe" class="menu-item-action" title="Equipe">Equipe</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/programacao" class="menu-item-action" title="Programação">Programação</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/noticias" class="menu-item-action" title="Notícias">Notícias</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/top20" class="menu-item-action" title="TOP20">TOP20</a>
+                </li>
+                <li class="menu-item">
+                    <a href="/contato" class="menu-item-action" title="Contato">Contato</a>
+                </li>
+
+            </ul>
+        </div>
+    </header>

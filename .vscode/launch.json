@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ProjetoIntegrador4Application<projetoIntegrador4>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.fatec.projetoIntegrador4.ProjetoIntegrador4Application",
+            "projectName": "projetoIntegrador4",
+            "args": ""
+        }
+    ]
+}
