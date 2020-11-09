@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fatec.projetoIntegrador4.models.Contato;
 import com.fatec.projetoIntegrador4.repositorys.ContatoRepository;
+import com.fatec.projetoIntegrador4.services.ContatoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -27,16 +27,20 @@
             <span style="color:#003399;; font-weight: bold;">(16)99345-6789 </span>.
         </p>
 
-        <form action="#" method="post">
-
-            <input type="text" placeholder="Nome" name="" class="nome" required minlength="3" />
-            <input type="email" placeholder="E-mail" name="" class="email" required/>
-            <textarea name="" class="nome" cols="30" rows="10" required></textarea>
+        <form action="/pedir-musica/cadastrar" method="post">
+            <input type="text" placeholder="Nome" name="name" class="nome" required minlength="3" maxlength="50" />
+            <input type="text" placeholder="Cidade" name="city" class="email" required minlength="3" maxlength="50"/>
+            <input type="text" placeholder="Música" name="music" class="email" required minlength="3" maxlength="50"/>
+            <textarea name="message" class="nome" cols="30" rows="10" placeholder="Mensagem" required minlength="10" maxlength="300"></textarea>
 
             <button class="" type="submit">Enviar</button>
         </form>
 
-
+        <!-- Validation message -->
+        <span th:text="${error}">
+        </span>
+        <span th:text="${success}">
+        </span>
     </div>
     <!-- foto -->
     <div class="wrapper-div">
