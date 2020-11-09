@@ -1,0 +1,54 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <h1>
+        Contato
+    </h1>
+
+    <div th:each="contato : ${contatos}">
+        <p>
+            Nome: <span th:text="${contato.name}"></span>
+        </p>
+        <p>
+            Email: <span th:text="${contato.email}"></span>
+        </p>
+        <p>
+            Mensagem: <span th:text="${contato.message}"></span>
+        </p>
+        <p>
+            Telefone: <span th:text="${contato.phone}"></span>
+        </p>
+
+        <br>
+
+        <div>
+            <a th:href="@{/dashboard/contato/detalhes/{id}(id=${contato.id})}">
+                Detalhes
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/contato/editar/{id}(id=${contato.id})}">
+                Editar
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/contato/deletar/{id}(id=${contato.id})}">
+                Deletar
+            </a>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <span id="alerta" th:text="${success}"></span>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

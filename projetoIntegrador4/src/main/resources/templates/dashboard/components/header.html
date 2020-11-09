@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        display: flex;
+    }
+    :root{
+        --header_width: 15%; 
+    }
+    header{
+        width: var(--header_width);
+        height: 100vh;
+
+        background-color: blue;
+
+        position: fixed;
+    }
+    main{
+        margin-left: var(--header_width);
+    }
+</style>
+<body>
+
+    <header>
+        <a href="/dashboard/contato">
+            contato
+        </a>
+        <br>
+        <a href="/dashboard/contato">
+            pedir música
+        </a>
+    </header>
+    

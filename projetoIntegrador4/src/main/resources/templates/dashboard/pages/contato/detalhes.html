@@ -1,0 +1,30 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/contato">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes de contato: <span th:text="${contato.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${contato.name}"></span>
+        </p>
+        <p>
+            Email: <span th:text="${contato.email}"></span>
+        </p>
+        <p>
+            Mensagem: <span th:text="${contato.message}"></span>
+        </p>
+        <p>
+            Telefone: <span th:text="${contato.phone}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>
