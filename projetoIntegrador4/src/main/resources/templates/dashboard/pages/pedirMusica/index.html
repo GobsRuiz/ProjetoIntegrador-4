@@ -2,7 +2,7 @@
 
 <main>
     <h1>
-        Contato
+        Pedidos de música
     </h1>
 
     <br>
@@ -11,24 +11,24 @@
     <br>
     <br>
 
-    <div th:each="contato : ${contatos}">
+    <div th:each="pedirMusica : ${pedirMusicas}">
         <p>
-            Nome: <span th:text="${contato.name}"></span>
+            Nome: <span th:text="${pedirMusica.name}"></span>
         </p>
         <p>
-            Email: <span th:text="${contato.email}"></span>
+            Email: <span th:text="${pedirMusica.city}"></span>
         </p>
         <p>
-            Mensagem: <span th:text="${contato.message}"></span>
+            Mensagem: <span th:text="${pedirMusica.music}"></span>
         </p>
         <p>
-            Telefone: <span th:text="${contato.phone}"></span>
+            Telefone: <span th:text="${pedirMusica.message}"></span>
         </p>
 
         <br>
 
         <div>
-            <a th:href="@{/dashboard/contato/detalhes/{id}(id=${contato.id})}">
+            <a th:href="@{/dashboard/pedir-musica/detalhes/{id}(id=${pedirMusica.id})}">
                 Detalhes
             </a>
 
@@ -36,7 +36,7 @@
             &nbsp;
             &nbsp;
 
-            <a th:href="@{/dashboard/contato/deletar/{id}(id=${contato.id})}">
+            <a th:href="@{/dashboard/pedir-musica/deletar/{id}(id=${pedirMusica.id})}">
                 Deletar
             </a>
         </div>

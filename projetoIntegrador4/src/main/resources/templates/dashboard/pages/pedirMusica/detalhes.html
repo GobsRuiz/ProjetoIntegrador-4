@@ -1,0 +1,30 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/pedir-musica">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes do pedido: <span th:text="${pedirMusica.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${pedirMusica.name}"></span>
+        </p>
+        <p>
+            Email: <span th:text="${pedirMusica.city}"></span>
+        </p>
+        <p>
+            Mensagem: <span th:text="${pedirMusica.music}"></span>
+        </p>
+        <p>
+            Telefone: <span th:text="${pedirMusica.message}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

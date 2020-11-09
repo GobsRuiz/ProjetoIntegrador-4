@@ -49,34 +49,6 @@ public class DashContatoController {
 
 
 
-    // Edit
-    @GetMapping("/dashboard/contato/editar/{id}")
-    public String edit(@PathVariable("id") Long id, Model model)
-    {   
-        Contato contato = contatoService.findById(id);
-        model.addAttribute("contato", contato);
-
-        return "dashboard/pages/contato/editar";
-    }
-
-    @RequestMapping("/dashboard/contato/editar/{id}")
-    public String update(@Valid Contato contato, BindingResult result, RedirectAttributes attributes, Model model)
-    {
-        if(result.hasErrors()) {
-            attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
-
-            return "redirect:/dashboard/contato/editar/{id}";
-        }else{
-            contatoService.save(contato);
-            attributes.addFlashAttribute("success", "Editado com sucesso!");
-
-            return "redirect:/dashboard/contato";
-        }
-
-    }
-
-
-
     // Delete
     @RequestMapping("/dashboard/contato/deletar/{id}")
     public String destroy(@PathVariable("id") Long id) {
