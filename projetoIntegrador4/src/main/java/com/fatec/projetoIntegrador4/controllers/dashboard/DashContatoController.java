@@ -29,11 +29,11 @@ public class DashContatoController {
 
     // Index
     @GetMapping("/dashboard/contato")
-    public ModelAndView index(){
-        ModelAndView mv = new ModelAndView("/dashboard/pages/contato/index");
+    public String index(Model model){
         List<Contato> contatos = contatoService.findAll();
-        mv.addObject("contatos", contatos);
-        return mv;
+        model.addAttribute("contatos", contatos);
+
+        return "/dashboard/pages/contato/index";
     }
 
 
@@ -60,14 +60,16 @@ public class DashContatoController {
     }
 
     @RequestMapping("/dashboard/contato/editar/{id}")
-    public String update(@Valid Contato contato, BindingResult result, RedirectAttributes attributes,Model model)
+    public String update(@Valid Contato contato, BindingResult result, RedirectAttributes attributes, Model model)
     {
         if(result.hasErrors()) {
             attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
+
             return "redirect:/dashboard/contato/editar/{id}";
         }else{
             contatoService.save(contato);
             attributes.addFlashAttribute("success", "Editado com sucesso!");
+
             return "redirect:/dashboard/contato";
         }
 

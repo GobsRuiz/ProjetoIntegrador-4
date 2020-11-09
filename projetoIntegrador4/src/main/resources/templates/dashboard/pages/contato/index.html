@@ -5,6 +5,12 @@
         Contato
     </h1>
 
+    <br>
+    <br>
+    <span id="alerta" th:text="${success}"></span>
+    <br>
+    <br>
+
     <div th:each="contato : ${contatos}">
         <p>
             Nome: <span th:text="${contato.name}"></span>
@@ -46,8 +52,6 @@
         <br>
         <br>
         <br>
-
-        <span id="alerta" th:text="${success}"></span>
     </div>
 </main>
 
