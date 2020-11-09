@@ -8,14 +8,21 @@
 
 
         <div class="row">
-            <form action="#" method="post">
+            <form action="/contato/cadastrar" method="post">
 
-                <input type="text" placeholder="Nome" name="" class="nome" required minlength="3" />
-                <input type="email" placeholder="E-mail" name="" class="email" required/>
-                <textarea name="" class="nome" cols="30" rows="10" required></textarea>
+                <input type="text" placeholder="Nome" name="name" class="nome" required/>
+                <input type="email" placeholder="E-mail" name="email" class="email" required/>
+                <textarea name="message" class="nome" cols="30" rows="10" placeholder="Mensagem" required></textarea>
+                <input type="text" placeholder="Telefone" name="phone" class="email" required/>
 
                 <button class="" type="submit">Enviar</button>
             </form>
+
+            <!-- Validation message -->
+            <span th:text="${error}">
+            </span>
+            <span th:text="${success}">
+            </span>
         </div>
     </div>
     <div class="wrapper-div">
