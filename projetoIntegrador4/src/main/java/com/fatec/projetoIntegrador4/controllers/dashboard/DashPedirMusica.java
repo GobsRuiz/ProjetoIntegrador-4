@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class DashPedirMusica {
@@ -44,7 +45,9 @@ public class DashPedirMusica {
 
     // Delete
     @RequestMapping("/dashboard/pedir-musica/deletar/{id}")
-    public String destroy(@PathVariable("id") Long id) {
+    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
+        attributes.addFlashAttribute("success", "Pedido de música deletado com sucesso!");
+
         pedirMusicaService.delete(id);
         return "redirect:/dashboard/pedir-musica";
     }

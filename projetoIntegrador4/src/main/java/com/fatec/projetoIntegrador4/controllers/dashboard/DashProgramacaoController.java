@@ -46,7 +46,16 @@ public class DashProgramacaoController {
 
     // Store
     @PostMapping("/dashboard/programas/cadastrar")
-    public String storeProgramacao(HttpServletRequest request) {
+    public String storeProgramacao(@Valid Programacao programacao, HttpServletRequest request, BindingResult result, RedirectAttributes attributes){
+        if(result.hasErrors()) {
+            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
+
+            return "redirect:/dashboard/programas";
+        }else{
+            attributes.addFlashAttribute("success", "Programa adicionado com sucesso!");
+        }
+
+        // Variáveis
         String name = request.getParameter("name");
         String estilo = request.getParameter("estilo");
         String horario = request.getParameter("horario");
@@ -54,7 +63,7 @@ public class DashProgramacaoController {
         Long id = Long.parseLong(request.getParameter("equipe_id")); 
         Equipe equipe = equipeService.findById(id);
 
-        Programacao programacao = new Programacao();
+        // Cadastro
         programacao.setName(name);
         programacao.setEstilo(estilo);
         programacao.setHorario(horario);
@@ -94,34 +103,40 @@ public class DashProgramacaoController {
     public String update(@Valid Programacao programacao, BindingResult result, RedirectAttributes attributes, HttpServletRequest request, Model model)
     {
         if(result.hasErrors()) {
-            attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
+            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
 
             return "redirect:/dashboard/programas/editar/{id}";
         }else{
-            String name = request.getParameter("name");
-            String estilo = request.getParameter("estilo");
-            String horario = request.getParameter("horario");
-            String segmentacao = request.getParameter("segmentacao");
-            Long id = Long.parseLong(request.getParameter("equipe_id")); 
-            Equipe equipe = equipeService.findById(id);
-
-            programacao.setName(name);
-            programacao.setEstilo(estilo);
-            programacao.setHorario(horario);
-            programacao.setSegmentacao(segmentacao);
-            programacao.setEquipe(equipe);
-            programacaoService.save(programacao);
-            attributes.addFlashAttribute("success", "Editado com sucesso!");
-
-            return "redirect:/dashboard/programas";
+            attributes.addFlashAttribute("success", "Programa editado com sucesso!");
         }
+
+        // Variáveis
+        String name = request.getParameter("name");
+        String estilo = request.getParameter("estilo");
+        String horario = request.getParameter("horario");
+        String segmentacao = request.getParameter("segmentacao");
+        Long id = Long.parseLong(request.getParameter("equipe_id")); 
+        Equipe equipe = equipeService.findById(id);
+
+        // Cadastro
+        programacao.setName(name);
+        programacao.setEstilo(estilo);
+        programacao.setHorario(horario);
+        programacao.setSegmentacao(segmentacao);
+        programacao.setEquipe(equipe);
+        programacaoService.save(programacao);
+        attributes.addFlashAttribute("success", "Editado com sucesso!");
+
+        return "redirect:/dashboard/programas";
     }
 
 
 
     // Delete
     @RequestMapping("/dashboard/programas/deletar/{id}")
-    public String destroy(@PathVariable("id") Long id) {
+    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("success", "Programa deletado com sucesso!");
+
         programacaoService.delete(id);
         return "redirect:/dashboard/programas";
     }

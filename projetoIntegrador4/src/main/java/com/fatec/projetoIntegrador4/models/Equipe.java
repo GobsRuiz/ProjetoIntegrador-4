@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -27,9 +28,12 @@ public class Equipe {
     @Size(min=3, max=50)
     private String funcao;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany()
     @JoinColumn(name = "equipe_id", referencedColumnName = "id")
     private List<Programacao> programacaoes;
+
+    @OneToOne(mappedBy = "equipe")
+    private Autor autor;
 
     public Long getId() {
         return id;
@@ -61,5 +65,13 @@ public class Equipe {
 
     public void setFuncao(String funcao) {
         this.funcao = funcao;
+    }
+
+    public Autor getAutor() {
+        return autor;
+    }
+
+    public void setAutor(Autor autor) {
+        this.autor = autor;
     }
 }

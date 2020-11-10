@@ -14,22 +14,26 @@
             <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
             <br>
             <br>
+
             <label for="">
                 Membro da equipe cadastro neste programa
             </label>
             <hr>
-            <p th:text="*{equipe.id}"></p>
-            <p th:text="*{equipe.name}"></p>
-            <hr>
+            <span th:text="*{equipe.id}"></span>
+            <span th:text="*{equipe.name}"></span>
+            <br>
             <input type="text" th:field="*{equipe.id}" placeholder="equipe_id" disabled>
             <input type="text" th:field="*{equipe.name}" placeholder="equipe_id" disabled>
             <hr>
             <br>
             <label for="">Cadastre outro membrom da equipe ou selecione o mesmo</label>
             <select name="equipe_id" id="">
-                    <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.id}">
-                    </option>
+                <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor'}" th:value="${equipe.id}" th:text="${equipe.name}">
+                </option>
+                <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor Noticialista'}" th:value="${equipe.id}" th:text="${equipe.name}">
+                </option>
             </select>
+
             <br>
             <br>
             <input type="text" th:field="*{estilo}" placeholder="estilo" minlength="3" maxlength="50" required>

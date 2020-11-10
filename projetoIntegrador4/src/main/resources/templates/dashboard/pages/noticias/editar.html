@@ -1,0 +1,35 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/noticias">
+        Voltar
+    </a>
+
+    <h1>
+        Editar noticia: <span th:text="${noticia.id}"></span>
+    </h1>
+
+    <div>
+        <form th:action="@{/dashboard/noticias/update/{id}(id=${noticia.id})}" th:object="${noticia}" method="POST" enctype="multipart/form-data">
+            <input type="text" th:field="*{titulo}"  minlength="3" maxlength="50" required>
+            <input type="text" th:field="*{texto}" minlength="3" maxlength="50" required>
+            <input type="text" th:field="*{autor.id}" disabled>
+            <select name="autor_id" id="">
+                <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.equipe.name}" ></option>
+            </select>
+            <br>
+            <img th:src="*{path}" alt="" height="100px">
+            <br>
+            Escolher outra imagem ?
+            <input type="file" id="imageFile" name="imageFile" >
+            <br>
+            <input type="text" th:field="*{path}" hidden>
+        
+            <button>
+                Enviar
+            </button>
+        </form>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class DashContatoController {
@@ -46,7 +47,9 @@ public class DashContatoController {
 
     // Delete
     @RequestMapping("/dashboard/contato/deletar/{id}")
-    public String destroy(@PathVariable("id") Long id) {
+    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("success", "Mensagem de contato deletado com sucesso!");
+
         contatoService.delete(id);
         return "redirect:/dashboard/contato";
     }

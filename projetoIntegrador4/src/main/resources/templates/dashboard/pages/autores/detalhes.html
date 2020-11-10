@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/autores">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes do autor: <span th:text="${autor.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            id: <span th:text="${autor.id}"></span>
+        </p>
+        <p>
+            Nome: <span th:text="${autor.name}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

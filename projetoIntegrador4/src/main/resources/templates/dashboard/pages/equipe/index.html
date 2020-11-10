@@ -58,7 +58,17 @@
 
     <form action="/dashboard/equipe/cadastrar" method="post">
         <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
-        <input type="text" name="funcao" placeholder="Função" minlength="3" maxlength="50" required>
+        <select name="funcao" id="">
+            <option value="Locutor">
+                Locutor
+            </option>
+            <option value="Locutor Noticialista">
+                Locutor Noticialista
+            </option>
+            <option value="Repórter">
+                Repórter
+            </option>
+        </select>
 
         <button>
             Enviar

@@ -2,9 +2,13 @@ package com.fatec.projetoIntegrador4.controllers.dashboard;
 
 import java.util.List;
 
+import javax.persistence.Id;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.fatec.projetoIntegrador4.models.Autor;
 import com.fatec.projetoIntegrador4.models.Equipe;
+import com.fatec.projetoIntegrador4.services.AutorService;
 import com.fatec.projetoIntegrador4.services.EquipeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,8 @@ public class DashEquipeController {
     // Service
     @Autowired
     private EquipeService equipeService;
+    @Autowired
+    private AutorService autorService;
     
 
 
@@ -38,8 +44,18 @@ public class DashEquipeController {
 
     // Store
     @PostMapping("/dashboard/equipe/cadastrar")
-    public String store(Equipe equipe) {
+    public String store(Equipe equipe, HttpServletRequest request, BindingResult result, RedirectAttributes attributes) {
+        if(result.hasErrors()) {
+            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
+
+            return "redirect:/dashboard/equipe";
+        }else{
+            attributes.addFlashAttribute("success", "Membro da equipe adicionado com sucesso!");
+        }
+
+
         equipeService.save(equipe);
+        
         return "redirect:/dashboard/equipe";
     }
 
@@ -69,22 +85,24 @@ public class DashEquipeController {
     public String update(@Valid Equipe equipe, BindingResult result, RedirectAttributes attributes, Model model)
     {
         if(result.hasErrors()) {
-            attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
+            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
 
             return "redirect:/dashboard/equipe/editar/{id}";
         }else{
-            equipeService.save(equipe);
-            attributes.addFlashAttribute("success", "Editado com sucesso!");
-
-            return "redirect:/dashboard/equipe";
+            attributes.addFlashAttribute("success", "Membro da equipe editado com sucesso!");
         }
+
+        equipeService.save(equipe);
+        return "redirect:/dashboard/equipe";
     }
 
 
 
     // Delete
     @RequestMapping("/dashboard/equipe/deletar/{id}")
-    public String destroy(@PathVariable("id") Long id) {
+    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
+        attributes.addFlashAttribute("success", "Membrom da equipe deletado com sucesso!");
+
         equipeService.delete(id);
         return "redirect:/dashboard/equipe";
     }

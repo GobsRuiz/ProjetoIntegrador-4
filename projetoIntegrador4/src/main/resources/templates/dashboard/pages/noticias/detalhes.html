@@ -1,0 +1,33 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/noticias">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes da noticia: <span th:text="${noticia.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Título: <span th:text="${noticia.titulo}"></span>
+        </p>
+        <p>
+            Data: <span th:text="${noticia.data}"></span>
+        </p>
+        <p>
+            Banner:
+            <br>
+            <img th:src="${noticia.path}" alt="" height="50px">
+        </p>
+        <p>
+            Texto: <span th:text="${noticia.texto}"></span>
+        </p>
+        <p>
+            Autor: <span th:text="${noticia.autor.name}"></span>
+        </p>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>
