@@ -1,0 +1,71 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <h1>
+        Equipe
+    </h1>
+
+    <br>
+    <br>
+    <span id="alerta" th:text="${success}"></span>
+    <br>
+    <br>
+
+    <div th:each="equipe : ${equipes}">
+        <p>
+            Nome: <span th:text="${equipe.name}"></span>
+        </p>
+        <p>
+            Função: <span th:text="${equipe.funcao}"></span>
+        </p>
+
+        <br>
+
+        <div>
+            <a th:href="@{/dashboard/equipe/detalhes/{id}(id=${equipe.id})}">
+                Detalhes
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/equipe/editar/{id}(id=${equipe.id})}">
+                Editar
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/equipe/deletar/{id}(id=${equipe.id})}">
+                Deletar
+            </a>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>
+        Cadastrar
+    </h1>
+
+    <form action="/dashboard/equipe/cadastrar" method="post">
+        <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
+        <input type="text" name="funcao" placeholder="Função" minlength="3" maxlength="50" required>
+
+        <button>
+            Enviar
+        </button>
+    </form>
+
+    <br>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

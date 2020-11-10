@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/equipe">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes do membro da equipe: <span th:text="${equipe.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${equipe.name}"></span>
+        </p>
+        <p>
+            Função: <span th:text="${equipe.funcao}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

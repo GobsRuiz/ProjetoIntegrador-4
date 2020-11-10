@@ -1,0 +1,30 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/programas">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes do programa: <span th:text="${programa.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${programa.name}"></span>
+        </p>
+        <p>
+            Estilo: <span th:text="${programa.estilo}"></span>
+        </p>
+        <p>
+            Horário: <span th:text="${programa.horario}"></span>
+        </p>
+        <p>
+            Segmentação: <span th:text="${programa.segmentacao}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

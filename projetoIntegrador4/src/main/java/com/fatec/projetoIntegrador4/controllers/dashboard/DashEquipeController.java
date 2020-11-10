@@ -1,0 +1,91 @@
+package com.fatec.projetoIntegrador4.controllers.dashboard;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import com.fatec.projetoIntegrador4.models.Equipe;
+import com.fatec.projetoIntegrador4.services.EquipeService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+public class DashEquipeController {
+
+    // Service
+    @Autowired
+    private EquipeService equipeService;
+    
+
+
+    // Index
+    @GetMapping("/dashboard/equipe")
+    public String index(Model model){
+        List<Equipe> equipes = equipeService.findAll();
+        model.addAttribute("equipes", equipes);
+        return "//dashboard/pages/equipe/index";
+    }
+
+
+
+    // Store
+    @PostMapping("/dashboard/equipe/cadastrar")
+    public String store(Equipe equipe) {
+        equipeService.save(equipe);
+        return "redirect:/dashboard/equipe";
+    }
+
+
+
+    // Show
+    @GetMapping("/dashboard/equipe/detalhes/{id}")
+    public String show(@PathVariable("id") Long id, Model model){
+        Equipe equipe = equipeService.findById(id);
+        model.addAttribute("equipe", equipe);
+        return "/dashboard/pages/equipe/detalhes";
+    }
+
+
+
+    // Edit
+    @GetMapping("/dashboard/equipe/editar/{id}")
+    public String edit(@PathVariable("id") Long id, Model model)
+    {   
+        Equipe equipe = equipeService.findById(id);
+        model.addAttribute("equipe", equipe);
+
+        return "/dashboard/pages/equipe/editar";
+    }
+
+    @RequestMapping("/dashboard/equipe/update/{id}")
+    public String update(@Valid Equipe equipe, BindingResult result, RedirectAttributes attributes, Model model)
+    {
+        if(result.hasErrors()) {
+            attributes.addFlashAttribute("error", "Verifique se os campos obrigatórios foram preenchidos!");
+
+            return "redirect:/dashboard/equipe/editar/{id}";
+        }else{
+            equipeService.save(equipe);
+            attributes.addFlashAttribute("success", "Editado com sucesso!");
+
+            return "redirect:/dashboard/equipe";
+        }
+    }
+
+
+
+    // Delete
+    @RequestMapping("/dashboard/equipe/deletar/{id}")
+    public String destroy(@PathVariable("id") Long id) {
+        equipeService.delete(id);
+        return "redirect:/dashboard/equipe";
+    }
+}

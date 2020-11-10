@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/equipe">
+        Voltar
+    </a>
+
+    <h1>
+        Editar membro da equipe: <span th:text="${equipe.id}"></span>
+    </h1>
+
+    <div>
+        <form th:action="@{/dashboard/equipe/update/{id}(id=${equipe.id})}" th:object="${equipe}" method="POST">
+            <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
+            <input type="text" th:field="*{funcao}" placeholder="Função" minlength="3" maxlength="50" required>
+        
+            <button>
+                Enviar
+            </button>
+        </form>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>
