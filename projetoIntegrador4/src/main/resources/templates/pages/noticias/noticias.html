@@ -27,95 +27,40 @@
     </div>
 </main>
 
+<div class="noticia-slider">
+    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-principaisNoticias">
+    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-principaisNoticias">
 
-
-<div class="container">
-
-    <div class="row">
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3>Cientistas encontram parasita preservado dentro de ossos de dinossauro</h3>
-                <p>
-                    Pesquisadores da UFRN, da UFSCar e da Unicamp identificaram microrganismo em 'dino zumbi' que sofria de osteomielite aguda, doença que até hoje afeta animais e também humanos.
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+    <div class="noticia-slider-noticias">
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 5}">
+            <div th:each="i : ${#numbers.sequence( 0, 5)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3>Milícia controla 57% da área do Rio e o tráfico,15%, aponta estudo</h3>
-                <p>
-                    Mapa dos Grupos Armados do Rio, lançado nesta segunda (19), aponta que três facções do tráfico juntas dominam 15,4% do território da capital.
 
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 11}">
+            <div th:each="i : ${#numbers.sequence( 6, 11)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Até que a quarentena os separe: os casais que romperam na pandemia</h3>
-                <p>
-                    Jade Magalhães anunciou fim do noivado com Luan Santana dez dias depois do divórcio de Gusttavo Lima e Andressa Suita. Buscas por separações aumentaram no Brasil desde o início do isolamento.
 
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> 6 em cada 10 trabalhadores brasileiros temem perder o emprego nos próximos 12</h3>
-                <p>
-                    Percentual é superior à média mundial, de 54%, e deixa o país entre os dez com maior proporção de trabalhadores que temem perder o emprego. Em contrapartida, 79% dos brasileiros dizem ter expectativa com possível requalificação profissional.
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Imagens exclusivas mostram saída de André do Rap da cadeia</h3>
-                <p>
-                    Há 8 dias, o megatraficante teve autorização para sair da prisão e virou centro de uma grande polêmica. O Fantástico explica o caso em detalhes.
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> 70 anos da TV brasileira em 70 imagens</h3>
-                <p>
-                    Televisão no Brasil faz aniversário: Os 70 anos da TV em 70 FOTOS Imagens em preto e branco e coloridas contam história da televisão.
-
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 18}">
+            <div th:each="i : ${#numbers.sequence( 12, 18)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
     </div>
-    <ul class="pagination center">
-        <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
-        <li class="active  teal lighten-2"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
-    </ul>
 </div>
+
+
+
+<!--  -->
 
 <section class="wrapper-section">
     <div class="content">
@@ -127,94 +72,37 @@
     </div>
 </section>
 
+<div class="noticia-slider">
+    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-vejaMaisNoticias">
+    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-vejaMaisNoticias">
 
-
-<div class="container">
-
-    <div class="row">
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Falsas médicas são presas pela segunda vez por procedimentos estéticos no Rio de Janeiro</h3>
-                <p>
-                    As duas mulheres já haviam sido presas pelo mesmo crime em 2017. Nova prisão ocorreu em flagrante, quando faziam um procedimento pelo qual cobraram R$ 15 mil.
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+    <div class="noticia-slider-noticias">
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 5}">
+            <div th:each="i : ${#numbers.sequence( 0, 5)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Backer reabre restaurante e relança cerveja 10 meses após intoxicações</h3>
-                <p>
-                    Vítima e representante ponderam sobre reabertura de restaurante, com relançamento de marca envolvida na contaminação, em evento gratuito para convidados selecionados.
 
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 11}">
+            <div th:each="i : ${#numbers.sequence( 6, 11)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Backer reabre restaurante e relança cerveja 10 meses após intoxicações</h3>
-                <p>
-                    Vítima e representante ponderam sobre reabertura de restaurante, com relançamento de marca envolvida na contaminação, em evento gratuito para convidados selecionados.
 
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Registro de armas de fogo aumentam em 120% em 2020, mas apreensões estão em queda</h3>
-                <p>
-                    Dados são do 14º Anuário Brasileiro de Segurança Pública. Houve 25.712 mortes violentas intencionais no 1º semestre de 2020, segundo documento divulgado neste domingo. Dado já tinha sido antecipado pelo Monitor da Violência.
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> 2 em cada 3 presos no Brasil são negros, aponta levantamento</h3>
-                <p>
-                    Proporção de negros nas prisões cresce 14% em 15 anos, enquanto a de brancos cai 19%, mostra Anuário de Segurança Pública
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Palmeiras fica perto de contratar técnico do Del Vale; contrato deve ser de 2 anos</h3>
-                <p>
-                    Treinador mostrou conhecimento sobre equipe e reforçou vontade de utilizar a base. Falta o pagamento da multa ao Independiente del Valle
-
-                </p>
-                <a href="#" class="blog-post-read">Ler mais</a>
+        <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 18}">
+            <div th:each="i : ${#numbers.sequence( 12, 18)}" class="noticia-slider-card">
+                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+    
+                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
             </div>
         </div>
     </div>
-    <ul class="pagination center">
-        <li class="disabled"><a href="#!"><i class="fas fa-chevron-left"></i></a></li>
-        <li class="active teal lighten-2"><a href="#!">1</a></li>
-        <li class="waves-effect"><a href="#!">2</a></li>
-        <li class="waves-effect"><a href="#!">3</a></li>
-        <li class="waves-effect"><a href="#!">4</a></li>
-        <li class="waves-effect"><a href="#!">5</a></li>
-        <li class="waves-effect"><a href="#!"><i class="fas fa-chevron-right"></i></a></li>
-    </ul>
 </div>
+
 
 <!-- Include footer -->
 <th:block th:insert="pages/components/footer"></th:block>

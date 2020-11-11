@@ -13,6 +13,7 @@
         <form th:action="@{/dashboard/top20/update/{id}(id=${top20.id})}" th:object="${top20}" method="POST">
             Musica cadastrada: <input type="text" th:field="*{id}" disabled>
             <br>
+            
             Selecione a mesma ou cadastre outra
             <select name="musica_id" id="">
                 <option th:each="musica : ${musicas}" th:value="${musica.id}" th:text="${musica.name}"></option>

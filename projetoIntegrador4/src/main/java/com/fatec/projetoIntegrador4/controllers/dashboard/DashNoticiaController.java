@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import com.fatec.projetoIntegrador4.models.Autor;
 import com.fatec.projetoIntegrador4.models.Noticia;
+import com.fatec.projetoIntegrador4.repositorys.NoticiaRepository;
 import com.fatec.projetoIntegrador4.services.AutorService;
 import com.fatec.projetoIntegrador4.services.NoticiaService;
 
@@ -31,6 +32,8 @@ public class DashNoticiaController {
     // Service
     @Autowired
     private NoticiaService noticiaService;
+    @Autowired
+    private NoticiaRepository noticiaRepository;
     @Autowired
     private AutorService autorService;
     
