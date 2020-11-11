@@ -2,7 +2,6 @@ package com.fatec.projetoIntegrador4.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,35 +27,35 @@ public class Autor {
     @JoinColumn(name = "autor_id", referencedColumnName = "id")
     private List<Noticia> noticias;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Equipe getEquipe() {
-        return equipe;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setEquipe(Equipe equipe) {
-        this.equipe = equipe;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public List<Noticia> getNoticias() {
-        return noticias;
-    }
+	public Equipe getEquipe() {
+		return equipe;
+	}
 
-    public void setNoticias(List<Noticia> noticias) {
-        this.noticias = noticias;
-    }
+	public void setEquipe(Equipe equipe) {
+		this.equipe = equipe;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public List<Noticia> getNoticias() {
+		return noticias;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setNoticias(List<Noticia> noticias) {
+		this.noticias = noticias;
+	}
 }

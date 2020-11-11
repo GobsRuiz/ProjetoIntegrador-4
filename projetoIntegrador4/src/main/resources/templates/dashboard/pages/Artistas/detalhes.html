@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/artistas">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes artista: <span th:text="${artista.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${artista.name}"></span>
+        </p>
+        <p>
+            Estilo: <span th:text="${artista.estilo}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

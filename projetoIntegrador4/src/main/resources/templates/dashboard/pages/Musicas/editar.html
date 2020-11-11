@@ -1,0 +1,32 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/musicas">
+        Voltar
+    </a>
+
+    <h1>
+        Editar musica: <span th:text="${musica.id}"></span>
+    </h1>
+
+    <div>
+        <form th:action="@{/dashboard/musicas/update/{id}(id=${musica.id})}" th:object="${musica}" method="POST">
+            <input type="text" th:field="*{name}" minlength="3" maxlength="50" required>
+            
+            <br>
+            Artista cadastrado nesta música:
+            <input type="text" th:field="*{artista.name}" disabled>
+            <br>
+            Selecione um novo artista ou escolha o mesmo
+            <select name="artista_id" id="">
+                <option th:each="artista : ${artistas}" th:value="${artista.id}" th:text="${artista.name}">
+                </option>
+            </select>
+            <button>
+                Enviar
+            </button>
+        </form>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

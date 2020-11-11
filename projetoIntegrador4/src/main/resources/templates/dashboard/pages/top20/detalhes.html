@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/top20">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes da música do top20: <span th:text="${top20.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Música: <span th:text="${top20.musica.name}"></span>
+        </p>
+        <p>
+            Artista: <span th:text="${top20.musica.artista.name}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

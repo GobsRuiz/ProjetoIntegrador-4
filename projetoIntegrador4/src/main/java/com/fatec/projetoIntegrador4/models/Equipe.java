@@ -28,7 +28,7 @@ public class Equipe {
     @Size(min=3, max=50)
     private String funcao;
 
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "equipe_id", referencedColumnName = "id")
     private List<Programacao> programacaoes;
 

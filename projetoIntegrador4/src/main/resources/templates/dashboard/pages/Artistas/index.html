@@ -1,0 +1,90 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <h1>
+        Artistas
+    </h1>
+
+    <br>
+    <br>
+    <span id="alerta" th:text="${success}"></span>
+    <br>
+    <br>
+
+    <div th:each="artista : ${artistas}">
+        <p>
+            Artista(s): <span th:text="${artista.name}"></span>
+        </p>
+        <p>
+            Estilo: <span th:text="${artista.estilo}"></span>
+        </p>
+        <p>
+            Músicas:
+            <span th:each="musica : ${musicas}" th:if="${musica.artista.id == artista.id}" th:text="${musica.name} + ', '">
+            </span>
+        </p>
+
+        <br>
+
+        <div>
+            <a th:href="@{/dashboard/artistas/detalhes/{id}(id=${artista.id})}">
+                Detalhes
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/artistas/editar/{id}(id=${artista.id})}">
+                Editar
+            </a>
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <a th:href="@{/dashboard/artistas/deletar/{id}(id=${artista.id})}">
+                Deletar
+            </a>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <h1>
+        Cadastrar
+    </h1>
+
+    <form action="/dashboard/artistas/cadastrar" method="post">
+        <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
+
+        <select name="estilo" id="">
+            <option value="Pop">
+                Pop
+            </option>
+            <option value="Sertanejo">
+                Sertanejo
+            </option>
+            <option value="Sertanejo">
+                Música Country
+            </option>
+            <option value="Sertanejo">
+                Funk
+            </option>
+        </select>
+        
+        <button>
+            Enviar
+        </button>
+    </form>
+
+    <br>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

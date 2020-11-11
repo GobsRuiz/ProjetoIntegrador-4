@@ -1,0 +1,21 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/musicas">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes da musica <span th:text="${musica.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${musica.name}"></span>
+        </p>
+
+        <br>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

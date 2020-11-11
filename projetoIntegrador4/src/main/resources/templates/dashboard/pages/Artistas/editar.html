@@ -1,0 +1,42 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/artistas">
+        Voltar
+    </a>
+
+    <h1>
+        Editar artista: <span th:text="${artista.id}"></span>
+    </h1>
+
+    <div>
+        <form th:action="@{/dashboard/artistas/update/{id}(id=${artista.id})}" th:object="${artista}" method="POST">
+            <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
+            
+            <br>
+            <p>
+                Estilo musical cadastrado: <input type="text" th:field="*{estilo}" disabled>
+            </p>
+            <select name="estilo" id="">
+                <option value="Pop">
+                    Pop
+                </option>
+                <option value="Sertanejo">
+                    Sertanejo
+                </option>
+                <option value="Musica Country">
+                    Música Country
+                </option>
+                <option value="Funk">
+                    Funk
+                </option>
+            </select>
+            
+            <button>
+                Enviar
+            </button>
+        </form>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>
