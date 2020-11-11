@@ -2,6 +2,7 @@ package com.fatec.projetoIntegrador4.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +24,7 @@ public class Musica {
     @JoinColumn(name = "artista_id", referencedColumnName = "id")
     private Artista artista;
 
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "musica_id", referencedColumnName = "id")
     private List<Top20> top20s;
 

@@ -39,6 +39,7 @@ public class DashProgramacaoController {
 
         List<Equipe> equipes = equipeService.findAll();
         model.addAttribute("equipes", equipes);
+        
         return "/dashboard/pages/programas/index";
     }
 
@@ -59,6 +60,7 @@ public class DashProgramacaoController {
         String name = request.getParameter("name");
         String estilo = request.getParameter("estilo");
         String horario = request.getParameter("horario");
+        String periodo = request.getParameter("periodo");
         String segmentacao = request.getParameter("segmentacao");
         Long id = Long.parseLong(request.getParameter("equipe_id")); 
         Equipe equipe = equipeService.findById(id);
@@ -67,6 +69,7 @@ public class DashProgramacaoController {
         programacao.setName(name);
         programacao.setEstilo(estilo);
         programacao.setHorario(horario);
+        programacao.setPeriodo(periodo);
         programacao.setSegmentacao(segmentacao);
         programacao.setEquipe(equipe);
         programacaoService.save(programacao);
@@ -114,6 +117,7 @@ public class DashProgramacaoController {
         String name = request.getParameter("name");
         String estilo = request.getParameter("estilo");
         String horario = request.getParameter("horario");
+        String periodo = request.getParameter("periodo");
         String segmentacao = request.getParameter("segmentacao");
         Long id = Long.parseLong(request.getParameter("equipe_id")); 
         Equipe equipe = equipeService.findById(id);
@@ -122,6 +126,7 @@ public class DashProgramacaoController {
         programacao.setName(name);
         programacao.setEstilo(estilo);
         programacao.setHorario(horario);
+        programacao.setPeriodo(periodo);
         programacao.setSegmentacao(segmentacao);
         programacao.setEquipe(equipe);
         programacaoService.save(programacao);

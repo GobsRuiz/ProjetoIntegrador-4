@@ -7,8 +7,11 @@ import javax.validation.Valid;
 
 import com.fatec.projetoIntegrador4.models.Artista;
 import com.fatec.projetoIntegrador4.models.Musica;
+import com.fatec.projetoIntegrador4.models.Top20;
 import com.fatec.projetoIntegrador4.services.ArtistaService;
 import com.fatec.projetoIntegrador4.services.MusicaService;
+import com.fatec.projetoIntegrador4.services.Top20Service;
+import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +30,8 @@ public class DashMusicaController {
     private MusicaService musicaService;
     @Autowired
     private ArtistaService artistaService;
+    @Autowired
+    private Top20Service top20Service;
 
 
 
@@ -116,7 +121,7 @@ public class DashMusicaController {
     @RequestMapping("/dashboard/musicas/deletar/{id}")
     public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
         attributes.addFlashAttribute("success", "Musica deletado com sucesso!");
-
+        
         musicaService.delete(id);
         return "redirect:/dashboard/musicas";
     }

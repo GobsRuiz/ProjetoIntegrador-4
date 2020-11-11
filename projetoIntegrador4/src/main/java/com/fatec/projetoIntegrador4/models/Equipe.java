@@ -32,7 +32,7 @@ public class Equipe {
     @JoinColumn(name = "equipe_id", referencedColumnName = "id")
     private List<Programacao> programacaoes;
 
-    @OneToOne(mappedBy = "equipe")
+    @OneToOne(mappedBy = "equipe", cascade = CascadeType.ALL)
     private Autor autor;
 
     public Long getId() {
@@ -51,14 +51,6 @@ public class Equipe {
         this.name = name;
     }
 
-    public List<Programacao> getProgramacaoes() {
-        return programacaoes;
-    }
-
-    public void setProgramacaoes(List<Programacao> programacaoes) {
-        this.programacaoes = programacaoes;
-    }
-
     public String getFuncao() {
         return funcao;
     }
@@ -73,5 +65,13 @@ public class Equipe {
 
     public void setAutor(Autor autor) {
         this.autor = autor;
+    }
+
+    public List<Programacao> getProgramacaoes() {
+        return programacaoes;
+    }
+
+    public void setProgramacaoes(List<Programacao> programacaoes) {
+        this.programacaoes = programacaoes;
     }
 }

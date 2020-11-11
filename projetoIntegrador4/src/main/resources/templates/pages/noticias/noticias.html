@@ -27,7 +27,7 @@
     </div>
 </main>
 
-<div class="noticia-slider">
+<div class="noticia-slider" th:if="${noticias.size() > 5}">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-principaisNoticias">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-principaisNoticias">
 
@@ -72,7 +72,7 @@
     </div>
 </section>
 
-<div class="noticia-slider">
+<div class="noticia-slider" th:if="${noticias.size() > 5}">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-vejaMaisNoticias">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-vejaMaisNoticias">
 
