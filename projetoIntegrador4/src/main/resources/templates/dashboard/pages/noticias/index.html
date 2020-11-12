@@ -69,7 +69,7 @@
 
     <form action="/dashboard/noticias/cadastrar" method="post" enctype="multipart/form-data">
         <input type="text" name="titulo" placeholder="Título" minlength="3" maxlength="50" required>
-        <input type="text" name="texto" placeholder="texto" minlength="3" maxlength="50" required>
+        <textarea name="texto" id="" cols="30" rows="10" minlength="3" maxlength="198"  required></textarea>
         <input type="file" id="imageFile" name="imageFile">
         <select name="autor_id" id="">
             <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.equipe.name}"></option>

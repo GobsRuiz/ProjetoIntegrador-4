@@ -12,7 +12,7 @@
     <div>
         <form th:action="@{/dashboard/noticias/update/{id}(id=${noticia.id})}" th:object="${noticia}" method="POST" enctype="multipart/form-data">
             <input type="text" th:field="*{titulo}"  minlength="3" maxlength="50" required>
-            <input type="text" th:field="*{texto}" minlength="3" maxlength="50" required>
+            <textarea th:field="*{texto}" id="" cols="30" rows="10" minlength="3" maxlength="198" required></textarea>
             <input type="text" th:field="*{autor.id}" disabled>
             <select name="autor_id" id="">
                 <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.equipe.name}" ></option>

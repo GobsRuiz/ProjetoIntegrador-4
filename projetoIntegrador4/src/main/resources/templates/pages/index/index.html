@@ -112,45 +112,23 @@
 </section>
 <div class="container">
 
-    <div class="row">
-        <div class="card">
-            <div class="card-header">
-
+    <div class="noticia-slider-noticias-cards" id="index-noticia" th:if="${noticias.size() > 3}">
+        <div th:each="i : ${#numbers.sequence( 0, 2)}" class="noticia-slider-card">
+            <div class="noticia-slider-card-header">
             </div>
-            <div class="card-body">
-                <h3>Cientistas encontram parasita preservado dentro de ossos de dinossauro</h3>
-                <p>
-                    Pesquisadores da UFRN, da UFSCar e da Unicamp identificaram microrganismo em 'dino zumbi' que sofria de osteomielite aguda, doença que até hoje afeta animais e também humanos.
 
-                </p>
-                <a href="noticias.html" class="blog-post-read">Ler mais</a>
+            <div class="noticia-slider-card-content">
+                <div>
+                    <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+        
+                    <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                </div>
+
+                <div>
+                    <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3>Milícia controla 57% da área do Rio e o tráfico,15%, aponta estudo</h3>
-                <p>
-                    Mapa dos Grupos Armados do Rio, lançado nesta segunda (19), aponta que três facções do tráfico juntas dominam 15,4% do território da capital.
-
-                </p>
-                <a href="noticias.html" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header">
-            </div>
-            <div class="card-body">
-                <h3> Até que a quarentena os separe: os casais que romperam na pandemia</h3>
-                <p>
-                    Jade Magalhães anunciou fim do noivado com Luan Santana dez dias depois do divórcio de Gusttavo Lima e Andressa Suita. Buscas por separações aumentaram no Brasil desde o início do isolamento.
-
-                </p>
-                <a href="noticias.html" class="blog-post-read">Ler mais</a>
-            </div>
-        </div>
-
     </div>
 </div>
 
@@ -162,6 +140,11 @@
     <a href="https://www.facebook.com/canalumfm" class="linkedin"><i class="fa fa-linkedin"></i></a>
     <a href="https://www.youtube.com/channel/UCbQIBUcBJX9AVKka1mFNo9Q" class="youtube"><i class="fa fa-youtube"></i></a>
 </div>
+
+
+
+<!-- Scripts -->
+<script th:src="@{/js/limiteCaracteres.js}"></script>
 
 <!-- Include footer -->
 <th:block th:insert="pages/components/footer"></th:block>

@@ -11,7 +11,7 @@ var noticiaSliderCard_all = document.querySelectorAll(".noticia-slider-card");
 var noticiaSliderCard_height = document.querySelector(".noticia-slider-card").clientHeight;
 
 var heightSlider = noticiaSliderCard_height * 2 + 100;
-var widthCard = noticiaSlider_width / 3 - 150;
+var widthCard = noticiaSlider_width / 3 - 80;
 
 var indexs = []
 var translatexs = []

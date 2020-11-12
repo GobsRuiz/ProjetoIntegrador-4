@@ -28,31 +28,64 @@
 </main>
 
 <div class="noticia-slider" th:if="${noticias.size() > 5}">
-    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-principaisNoticias">
+    <img src="../../carouselIcons/arrowPrev.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-principaisNoticias">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-principaisNoticias">
 
     <div class="noticia-slider-noticias">
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 5}">
             <div th:each="i : ${#numbers.sequence( 0, 5)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 11}">
             <div th:each="i : ${#numbers.sequence( 6, 11)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 18}">
             <div th:each="i : ${#numbers.sequence( 12, 18)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -73,36 +106,74 @@
 </section>
 
 <div class="noticia-slider" th:if="${noticias.size() > 5}">
-    <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-vejaMaisNoticias">
+    <img src="../../carouselIcons/arrowPrev.svg" alt="" class="noticia-slider-prevBtn" id="noticia-slider-prevBtn-vejaMaisNoticias">
     <img src="../../carouselIcons/arrowNext.svg" alt="" class="noticia-slider-nextBtn" id="noticia-slider-nextBtn-vejaMaisNoticias">
 
     <div class="noticia-slider-noticias">
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 5}">
             <div th:each="i : ${#numbers.sequence( 0, 5)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 11}">
             <div th:each="i : ${#numbers.sequence( 6, 11)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="noticia-slider-noticias-cards" th:if="${noticias.size() > 18}">
             <div th:each="i : ${#numbers.sequence( 12, 18)}" class="noticia-slider-card">
-                <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
-    
-                <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                <div class="noticia-slider-card-header">
+                </div>
+
+                <div class="noticia-slider-card-content">
+                    <div>
+                        <h3 class="noticia-slider-card-titulo" th:text="${noticias[i].titulo}"></h3>
+            
+                        <p class="noticia-slider-card-texto" th:text="${noticias[i].texto}"></p>
+                    </div>
+
+                    <div>
+                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+
+
+<!-- Scripts -->
+<script th:src="@{/js/noticiaSlider.js}"></script>
+<script th:src="@{/js/limiteCaracteres.js}"></script>
 
 <!-- Include footer -->
 <th:block th:insert="pages/components/footer"></th:block>
