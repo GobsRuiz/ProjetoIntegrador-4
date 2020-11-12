@@ -10,10 +10,17 @@
     </h1>
 
     <div>
-        <form th:action="@{/dashboard/equipe/update/{id}(id=${equipe.id})}" th:object="${equipe}" method="POST">
+        <form th:action="@{/dashboard/equipe/update/{id}(id=${equipe.id})}" th:object="${equipe}" method="POST" enctype="multipart/form-data">
             <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
             <input type="text" th:field="*{funcao}" placeholder="Função" minlength="3" maxlength="50" required>
         
+            <br>
+            <img th:src="*{path}" alt="" height="100px">
+            <br>
+            Escolher outra imagem ?
+            <input type="file" id="imageFile" name="imageFile" >
+            <br>
+
             <button>
                 Enviar
             </button>

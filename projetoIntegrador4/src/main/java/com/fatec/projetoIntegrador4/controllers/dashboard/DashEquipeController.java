@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -43,7 +45,7 @@ public class DashEquipeController {
 
     // Store
     @PostMapping("/dashboard/equipe/cadastrar")
-    public String store(Equipe equipe, HttpServletRequest request, BindingResult result, RedirectAttributes attributes) {
+    public String store(Equipe equipe, HttpServletRequest request, BindingResult result, RedirectAttributes attributes, @RequestParam("imageFile") MultipartFile imageFile) {
         if(result.hasErrors()) {
             attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
 
@@ -52,7 +54,21 @@ public class DashEquipeController {
             attributes.addFlashAttribute("success", "Membro da equipe adicionado com sucesso!");
         }
 
+        String nomeOriginal = imageFile.getOriginalFilename();
+        String path = "/img/" + nomeOriginal;
+        String returnValue = "start";
 
+        // Imagem
+        try{
+            equipeService.saveImage(imageFile);
+
+        } catch(Exception e){
+            e.printStackTrace();
+            returnValue = "erro parceiro"; 
+            return returnValue;
+        }
+
+        equipe.setPath(path);
         equipeService.save(equipe);
         
         return "redirect:/dashboard/equipe";
@@ -81,7 +97,7 @@ public class DashEquipeController {
     }
 
     @RequestMapping("/dashboard/equipe/update/{id}")
-    public String update(@Valid Equipe equipe, BindingResult result, RedirectAttributes attributes, Model model)
+    public String update(@Valid Equipe equipe, BindingResult result, RedirectAttributes attributes, HttpServletRequest request, Model model, @RequestParam("imageFile") MultipartFile imageFile)
     {
         if(result.hasErrors()) {
             attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
@@ -89,6 +105,24 @@ public class DashEquipeController {
             return "redirect:/dashboard/equipe/editar/{id}";
         }else{
             attributes.addFlashAttribute("success", "Membro da equipe editado com sucesso!");
+        }
+
+        // Imagem
+        try{
+            String nomeOriginal = imageFile.getOriginalFilename();
+            String path = "/img/" + nomeOriginal;
+            equipe.setPath(path);
+            equipeService.saveImage(imageFile);
+
+        } catch(Exception e){
+            // Path
+            String path = request.getParameter("path");
+
+            // Cadastro dos dados
+            equipe.setPath(path);
+            equipeService.save(equipe);
+            
+            return "redirect:/dashboard/noticias";
         }
 
         equipeService.save(equipe);

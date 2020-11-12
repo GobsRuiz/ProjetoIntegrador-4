@@ -28,6 +28,8 @@ public class Equipe {
     @Size(min=3, max=50)
     private String funcao;
 
+    private String path;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "equipe_id", referencedColumnName = "id")
     private List<Programacao> programacaoes;
@@ -73,5 +75,13 @@ public class Equipe {
 
     public void setProgramacaoes(List<Programacao> programacaoes) {
         this.programacaoes = programacaoes;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

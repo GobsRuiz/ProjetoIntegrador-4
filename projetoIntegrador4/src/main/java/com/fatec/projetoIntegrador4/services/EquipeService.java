@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.fatec.projetoIntegrador4.models.Equipe;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface EquipeService {
     
     List<Equipe> findAll();
@@ -13,4 +15,7 @@ public interface EquipeService {
     Equipe save(Equipe equipe);
 
     void delete(Long id);
+
+    // Save image
+    void saveImage(MultipartFile imageFile) throws Exception;
 }
