@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import com.fatec.projetoIntegrador4.models.Artista;
 import com.fatec.projetoIntegrador4.models.Musica;
 import com.fatec.projetoIntegrador4.services.ArtistaService;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.MusicaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,8 @@ public class DashArtistaController {
     private ArtistaService artistaService;
     @Autowired
     private MusicaService musicaService;
-
+    @Autowired
+    private DashControleService dashControleService;
 
 
     // Index
@@ -38,6 +40,9 @@ public class DashArtistaController {
 
         List<Musica> musicas = musicaService.findAll();
         model.addAttribute("musicas", musicas);
+        
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/artistas/index";
     }

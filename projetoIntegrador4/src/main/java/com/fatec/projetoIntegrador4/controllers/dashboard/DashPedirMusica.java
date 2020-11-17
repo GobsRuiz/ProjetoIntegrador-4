@@ -3,6 +3,7 @@ package com.fatec.projetoIntegrador4.controllers.dashboard;
 import java.util.List;
 
 import com.fatec.projetoIntegrador4.models.PedirMusica;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.PedirMusicaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class DashPedirMusica {
     // Service
     @Autowired
     private PedirMusicaService pedirMusicaService;
+    @Autowired
+    private DashControleService dashControleService;
     
 
 
@@ -27,6 +30,9 @@ public class DashPedirMusica {
     public String index(Model model){
         List<PedirMusica> pedirMusicas = pedirMusicaService.findAll();
         model.addAttribute("pedirMusicas", pedirMusicas);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/pedirMusica/index";
     }

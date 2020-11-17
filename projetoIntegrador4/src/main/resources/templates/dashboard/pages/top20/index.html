@@ -1,72 +1,79 @@
-<th:block th:insert="dashboard/components/header"></th:block>
-
-<main>
-    <h1>
-        Top20
-    </h1>
-
-    <br>
-    <br>
-    <span id="alerta" th:text="${success}"></span>
-    <br>
-    <br>
-
-    <div th:each="top20 : ${top20s}">
-        <p>
-            Música: <span th:text="${top20.musica.name}"></span>
-        </p>
-        <p>
-            Artista: <span th:text="${top20.musica.artista.name}"></span>
-        </p>
-
-        <br>
-
-        <div>
-            <a th:href="@{/dashboard/top20/detalhes/{id}(id=${top20.id})}">
-                Detalhes
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/top20/editar/{id}(id=${top20.id})}">
-                Editar
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/top20/deletar/{id}(id=${top20.id})}">
-                Deletar
-            </a>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-    </div>
-
-    <br>
-    <br>
-    <br>
-
-    <h1>
-        Cadastrar
-    </h1>
-
-    <form action="/dashboard/top20/cadastrar" method="post">
-        <select name="musica_id" id="">
-            <option th:each="musica : ${musicas}" th:value="${musica.id}" th:text="${musica.name}"></option>
-        </select>
-
-        <button>
-            Enviar
-        </button>
-    </form>
-
-    <br>
-</main>
-
-<th:block th:insert="dashboard/components/footer"></th:block>
+<span th:switch="${verificarLogin}">
+    <span th:case="'logado'" id="body">
+        <th:block th:insert="dashboard/components/header"></th:block>
+        
+        <main>
+            <h1>
+                Top20
+            </h1>
+        
+            <br>
+            <br>
+            <span id="alerta" th:text="${success}"></span>
+            <br>
+            <br>
+        
+            <div th:each="top20 : ${top20s}">
+                <p>
+                    Música: <span th:text="${top20.musica.name}"></span>
+                </p>
+                <p>
+                    Artista: <span th:text="${top20.musica.artista.name}"></span>
+                </p>
+        
+                <br>
+        
+                <div>
+                    <a th:href="@{/dashboard/top20/detalhes/{id}(id=${top20.id})}">
+                        Detalhes
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/top20/editar/{id}(id=${top20.id})}">
+                        Editar
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/top20/deletar/{id}(id=${top20.id})}">
+                        Deletar
+                    </a>
+                </div>
+        
+                <br>
+                <hr>
+                <br>
+            </div>
+        
+            <br>
+            <br>
+            <br>
+        
+            <h1>
+                Cadastrar
+            </h1>
+        
+            <form action="/dashboard/top20/cadastrar" method="post">
+                <select name="musica_id" id="">
+                    <option th:each="musica : ${musicas}" th:value="${musica.id}" th:text="${musica.name}"></option>
+                </select>
+        
+                <button>
+                    Enviar
+                </button>
+            </form>
+        
+            <br>
+        </main>
+        
+        <th:block th:insert="dashboard/components/footer"></th:block>
+    </span>
+    <span th:case="*">
+        Não logado
+    </span>
+</span>

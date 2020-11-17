@@ -1,75 +1,82 @@
-<th:block th:insert="dashboard/components/header"></th:block>
-
-<main>
-    <h1>
-        Autor
-    </h1>
-
-    <br>
-    <br>
-    <span id="alerta" th:text="${success}"></span>
-    <br>
-    <br>
-
-    <div th:each="autor : ${autores}">
-        <p>
-            Id: <span th:text="${autor.id}"></span>
-        </p>
-        <p>
-            Nome: <span th:text="${autor.name}"></span>
-        </p>
-
-        <br>
-
-        <div>
-            <a th:href="@{/dashboard/autores/detalhes/{id}(id=${autor.id})}">
-                Detalhes
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/autores/editar/{id}(id=${autor.id})}">
-                Editar
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/autores/deletar/{id}(id=${autor.id})}">
-                Deletar
-            </a>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-
-    </div>
-
-    <br>
-    <br>
-
-    <h1>
-        Cadastrar
-    </h1>
-
-    <form action="/dashboard/autores/cadastrar" method="post">
-        <select name="equipe_id" id="">
-                <!-- th:if="${equipe.id != autor.equipe.id}" -->
-                
-                <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
-                </option>
-        </select>
-
-        <button>
-            Enviar
-        </button>
-    </form>
-
-    <br>
-</main>
-
-<th:block th:insert="dashboard/components/footer"></th:block>
+<span th:switch="${verificarLogin}">
+    <span th:case="'logado'" id="body">
+        <th:block th:insert="dashboard/components/header"></th:block>
+        
+        <main>
+            <h1>
+                Autor
+            </h1>
+        
+            <br>
+            <br>
+            <span id="alerta" th:text="${success}"></span>
+            <br>
+            <br>
+        
+            <div th:each="autor : ${autores}">
+                <p>
+                    Id: <span th:text="${autor.id}"></span>
+                </p>
+                <p>
+                    Nome: <span th:text="${autor.name}"></span>
+                </p>
+        
+                <br>
+        
+                <div>
+                    <a th:href="@{/dashboard/autores/detalhes/{id}(id=${autor.id})}">
+                        Detalhes
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/autores/editar/{id}(id=${autor.id})}">
+                        Editar
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/autores/deletar/{id}(id=${autor.id})}">
+                        Deletar
+                    </a>
+                </div>
+        
+                <br>
+                <hr>
+                <br>
+        
+            </div>
+        
+            <br>
+            <br>
+        
+            <h1>
+                Cadastrar
+            </h1>
+        
+            <form action="/dashboard/autores/cadastrar" method="post">
+                <select name="equipe_id" id="">
+                        <!-- th:if="${equipe.id != autor.equipe.id}" -->
+                        
+                        <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
+                        </option>
+                </select>
+        
+                <button>
+                    Enviar
+                </button>
+            </form>
+        
+            <br>
+        </main>
+        
+        <th:block th:insert="dashboard/components/footer"></th:block>
+    </span>
+    <span th:case="*">
+        Não logado
+    </span>
+</span>

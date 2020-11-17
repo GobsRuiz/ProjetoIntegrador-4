@@ -12,6 +12,7 @@ import com.fatec.projetoIntegrador4.models.Autor;
 import com.fatec.projetoIntegrador4.models.Noticia;
 import com.fatec.projetoIntegrador4.repositorys.NoticiaRepository;
 import com.fatec.projetoIntegrador4.services.AutorService;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.NoticiaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,8 @@ public class DashNoticiaController {
     private NoticiaRepository noticiaRepository;
     @Autowired
     private AutorService autorService;
+    @Autowired
+    private DashControleService dashControleService;
     
 
 
@@ -47,6 +50,9 @@ public class DashNoticiaController {
 
         List<Autor> autores = autorService.findAll();
         model.addAttribute("autores", autores);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/noticias/index";
     }

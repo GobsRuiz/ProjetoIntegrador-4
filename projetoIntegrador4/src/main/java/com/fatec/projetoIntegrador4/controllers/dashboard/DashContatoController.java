@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fatec.projetoIntegrador4.models.Contato;
 import com.fatec.projetoIntegrador4.services.ContatoService;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ public class DashContatoController {
     // Service
     @Autowired
     private ContatoService contatoService;
+    @Autowired
+    private DashControleService dashControleService;
     
 
 
@@ -28,6 +31,9 @@ public class DashContatoController {
     public String index(Model model){
         List<Contato> contatos = contatoService.findAll();
         model.addAttribute("contatos", contatos);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/contato/index";
     }

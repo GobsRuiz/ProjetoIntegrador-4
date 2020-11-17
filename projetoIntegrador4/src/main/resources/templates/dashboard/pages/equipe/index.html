@@ -1,87 +1,94 @@
-<th:block th:insert="dashboard/components/header"></th:block>
-
-<main>
-    <h1>
-        Equipe
-    </h1>
-
-    <br>
-    <br>
-    <span id="alerta" th:text="${success}"></span>
-    <br>
-    <br>
-
-    <div th:each="equipe : ${equipes}">
-        <p>
-            Nome: <span th:text="${equipe.name}"></span>
-        </p>
-        <p>
-            Função: <span th:text="${equipe.funcao}"></span>
-        </p>
-        <p>
-            Imagem:
+<span th:switch="${verificarLogin}">
+    <span th:case="'logado'" id="body">
+        <th:block th:insert="dashboard/components/header"></th:block>
+        
+        <main>
+            <h1>
+                Equipe
+            </h1>
+        
             <br>
-            <img th:src="${equipe.path}" alt="" height="50px">
-        </p>
-
-        <br>
-
-        <div>
-            <a th:href="@{/dashboard/equipe/detalhes/{id}(id=${equipe.id})}">
-                Detalhes
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/equipe/editar/{id}(id=${equipe.id})}">
-                Editar
-            </a>
-
-            &nbsp;
-            &nbsp;
-            &nbsp;
-
-            <a th:href="@{/dashboard/equipe/deletar/{id}(id=${equipe.id})}">
-                Deletar
-            </a>
-        </div>
-
-        <br>
-        <hr>
-        <br>
-    </div>
-
-    <br>
-    <br>
-    <br>
-
-    <h1>
-        Cadastrar
-    </h1>
-
-    <form action="/dashboard/equipe/cadastrar" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
-        <input type="file" id="imageFile" name="imageFile">
-        <select name="funcao" id="">
-            <option value="Locutor">
-                Locutor
-            </option>
-            <option value="Locutor Noticialista">
-                Locutor Noticialista
-            </option>
-            <option value="Repórter">
-                Repórter
-            </option>
-        </select>
-
-        <button>
-            Enviar
-        </button>
-    </form>
-
-    <br>
-</main>
-
-<th:block th:insert="dashboard/components/footer"></th:block>
+            <br>
+            <span id="alerta" th:text="${success}"></span>
+            <br>
+            <br>
+        
+            <div th:each="equipe : ${equipes}">
+                <p>
+                    Nome: <span th:text="${equipe.name}"></span>
+                </p>
+                <p>
+                    Função: <span th:text="${equipe.funcao}"></span>
+                </p>
+                <p>
+                    Imagem:
+                    <br>
+                    <img th:src="${equipe.path}" alt="" height="50px">
+                </p>
+        
+                <br>
+        
+                <div>
+                    <a th:href="@{/dashboard/equipe/detalhes/{id}(id=${equipe.id})}">
+                        Detalhes
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/equipe/editar/{id}(id=${equipe.id})}">
+                        Editar
+                    </a>
+        
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+        
+                    <a th:href="@{/dashboard/equipe/deletar/{id}(id=${equipe.id})}">
+                        Deletar
+                    </a>
+                </div>
+        
+                <br>
+                <hr>
+                <br>
+            </div>
+        
+            <br>
+            <br>
+            <br>
+        
+            <h1>
+                Cadastrar
+            </h1>
+        
+            <form action="/dashboard/equipe/cadastrar" method="post" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
+                <input type="file" id="imageFile" name="imageFile">
+                <select name="funcao" id="">
+                    <option value="Locutor">
+                        Locutor
+                    </option>
+                    <option value="Locutor Noticialista">
+                        Locutor Noticialista
+                    </option>
+                    <option value="Repórter">
+                        Repórter
+                    </option>
+                </select>
+        
+                <button>
+                    Enviar
+                </button>
+            </form>
+        
+            <br>
+        </main>
+        
+        <th:block th:insert="dashboard/components/footer"></th:block>
+    </span>
+    <span th:case="*">
+        Não logado
+    </span>
+</span>

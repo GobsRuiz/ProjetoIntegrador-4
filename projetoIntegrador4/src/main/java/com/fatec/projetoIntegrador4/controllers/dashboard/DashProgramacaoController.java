@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import com.fatec.projetoIntegrador4.models.Equipe;
 import com.fatec.projetoIntegrador4.models.Programacao;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.EquipeService;
 import com.fatec.projetoIntegrador4.services.ProgramacaoService;
 
@@ -28,6 +29,8 @@ public class DashProgramacaoController {
     private ProgramacaoService programacaoService;
     @Autowired
     private EquipeService equipeService;
+    @Autowired
+    private DashControleService dashControleService;
 
 
 
@@ -39,6 +42,9 @@ public class DashProgramacaoController {
 
         List<Equipe> equipes = equipeService.findAll();
         model.addAttribute("equipes", equipes);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
         
         return "/dashboard/pages/programas/index";
     }

@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import com.fatec.projetoIntegrador4.models.Autor;
 import com.fatec.projetoIntegrador4.models.Equipe;
 import com.fatec.projetoIntegrador4.services.AutorService;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.EquipeService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class DashAutorController {
     private AutorService autorService;
     @Autowired
     private EquipeService equipeService;
+    @Autowired
+    private DashControleService dashControleService;
 
 
 
@@ -38,6 +41,9 @@ public class DashAutorController {
 
         List<Equipe> equipes = equipeService.findAll();
         model.addAttribute("equipes", equipes);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/autores/index";
     }

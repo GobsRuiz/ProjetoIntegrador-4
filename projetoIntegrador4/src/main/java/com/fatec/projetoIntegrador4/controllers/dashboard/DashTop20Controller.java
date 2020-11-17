@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import com.fatec.projetoIntegrador4.models.Musica;
 import com.fatec.projetoIntegrador4.models.Top20;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.MusicaService;
 import com.fatec.projetoIntegrador4.services.Top20Service;
 
@@ -27,6 +28,8 @@ public class DashTop20Controller {
     private Top20Service top20Service;
     @Autowired
     private MusicaService musicaService;
+    @Autowired
+    private DashControleService dashControleService;
 
 
 
@@ -38,6 +41,9 @@ public class DashTop20Controller {
 
         List<Musica> musicas = musicaService.findAll();
         model.addAttribute("musicas", musicas);
+        
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/top20/index";
     }

@@ -9,6 +9,7 @@ import com.fatec.projetoIntegrador4.models.Artista;
 import com.fatec.projetoIntegrador4.models.Musica;
 import com.fatec.projetoIntegrador4.models.Top20;
 import com.fatec.projetoIntegrador4.services.ArtistaService;
+import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.MusicaService;
 import com.fatec.projetoIntegrador4.services.Top20Service;
 import com.sun.xml.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
@@ -32,6 +33,8 @@ public class DashMusicaController {
     private ArtistaService artistaService;
     @Autowired
     private Top20Service top20Service;
+    @Autowired
+    private DashControleService dashControleService;
 
 
 
@@ -43,6 +46,9 @@ public class DashMusicaController {
 
         List<Artista> artistas = artistaService.findAll();
         model.addAttribute("artistas", artistas);
+
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
 
         return "/dashboard/pages/musicas/index";
     }

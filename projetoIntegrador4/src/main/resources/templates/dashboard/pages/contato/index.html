@@ -1,50 +1,57 @@
-<th:block th:insert="dashboard/components/header"></th:block>
+<span th:switch="${verificarLogin}">
+    <span th:case="'logado'" id="body">
+        <th:block th:insert="dashboard/components/header"></th:block>
 
-<main>
-    <h1>
-        Contato
-    </h1>
+        <main>
+            <h1>
+                Contato
+            </h1>
 
-    <br>
-    <br>
-    <span id="alerta" th:text="${success}"></span>
-    <br>
-    <br>
+            <br>
+            <br>
+            <span id="alerta" th:text="${success}"></span>
+            <br>
+            <br>
 
-    <div th:each="contato : ${contatos}">
-        <p>
-            Nome: <span th:text="${contato.name}"></span>
-        </p>
-        <p>
-            Email: <span th:text="${contato.email}"></span>
-        </p>
-        <p>
-            Mensagem: <span th:text="${contato.message}"></span>
-        </p>
-        <p>
-            Telefone: <span th:text="${contato.phone}"></span>
-        </p>
+            <div th:each="contato : ${contatos}">
+                <p>
+                    Nome: <span th:text="${contato.name}"></span>
+                </p>
+                <p>
+                    Email: <span th:text="${contato.email}"></span>
+                </p>
+                <p>
+                    Mensagem: <span th:text="${contato.message}"></span>
+                </p>
+                <p>
+                    Telefone: <span th:text="${contato.phone}"></span>
+                </p>
 
-        <br>
+                <br>
 
-        <div>
-            <a th:href="@{/dashboard/contato/detalhes/{id}(id=${contato.id})}">
-                Detalhes
-            </a>
+                <div>
+                    <a th:href="@{/dashboard/contato/detalhes/{id}(id=${contato.id})}">
+                        Detalhes
+                    </a>
 
-            &nbsp;
-            &nbsp;
-            &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
 
-            <a th:href="@{/dashboard/contato/deletar/{id}(id=${contato.id})}">
-                Deletar
-            </a>
-        </div>
+                    <a th:href="@{/dashboard/contato/deletar/{id}(id=${contato.id})}">
+                        Deletar
+                    </a>
+                </div>
 
-        <br>
-        <br>
-        <br>
-    </div>
-</main>
+                <br>
+                <br>
+                <br>
+            </div>
+        </main>
 
-<th:block th:insert="dashboard/components/footer"></th:block>
+        <th:block th:insert="dashboard/components/footer"></th:block>
+    </span>
+    <span th:case="*">
+        Não logado
+    </span>
+</span>
