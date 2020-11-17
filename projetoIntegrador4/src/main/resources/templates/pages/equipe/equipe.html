@@ -17,70 +17,12 @@
 </main>
 
 <section class="services" title="Seção sobre a equipe da rádio">
-    <div class="team">
+    <div class="team" th:each="equipe : ${equipes}">
         <div class="service">
-            <a href="#" class="team-person"> <img src="img/delcimarguissoni.jpg" alt=""></a>
-            <h2>Delcimar Guissoni</h2>
-            <p>Locutor</p>
-
+            <a href="#" class="team-person"><img th:src="${equipe.path}" alt=""></a>
+            <h2 th:text="${equipe.name}"></h2>
+            <p th:text="${equipe.funcao}"></p>
         </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"> <img src="img/edsoncandido.jpg" alt=""></a>
-            <h2>edson candido</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"><img src="img/edsoncandido.jpg" alt=""></a>
-            <h2>fabiano lima</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"><img src="img/gauchotaquaritinga.jpg" alt=""></a>
-            <h2>gaúcho taquaritinga</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"> <img src="img/italianinho.jpg" alt=""></a>
-            <h2>italianinho</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"> <img src="img/joselucenti.jpg" alt=""></a>
-            <h2>josé lucenti</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"> <img src="img/malumonteiro.jpg" alt=""></a>
-            <h2>Malu Monteiro</h2>
-            <p>Locutor</p>
-        </div>
-
-    </div>
-    <div class="team">
-        <div class="service">
-            <a href="#" class="team-person"><img src="img/nhomiro.jpg" alt=""></a>
-            <h2>nhô miro</h2>
-            <p>Locutor</p>
-        </div>
-
     </div>
 </section>
 

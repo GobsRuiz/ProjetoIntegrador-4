@@ -549,7 +549,7 @@ li {
 }
 
 .service {
-    margin: 0 -2px;
+    margin: 40px -2px;
     box-sizing: border-box;
     cursor: pointer;
     transition: 0.4s;
@@ -559,7 +559,7 @@ li {
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 500;
-    margin: 50px 0;
+    margin: 10px 0;
 }
 
 .service p {
@@ -579,7 +579,7 @@ li {
 
 .team-person>img {
     border-radius: 100%;
-    padding: 50px;
+    padding: 10px;
     height: 300px;
     width: 300px;
 }

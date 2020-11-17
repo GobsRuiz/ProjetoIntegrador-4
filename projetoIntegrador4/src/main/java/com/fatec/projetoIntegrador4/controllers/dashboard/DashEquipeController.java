@@ -64,7 +64,7 @@ public class DashEquipeController {
 
         } catch(Exception e){
             e.printStackTrace();
-            returnValue = "erro parceiro"; 
+            returnValue = "Erro ao salvar a imagem!! Verifique se você selecionou alguma imagem. Tente novamente !!"; 
             return returnValue;
         }
 
