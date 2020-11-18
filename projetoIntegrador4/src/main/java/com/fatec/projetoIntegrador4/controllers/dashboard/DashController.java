@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.JOptionPane;
 
 import com.fatec.projetoIntegrador4.models.Administrador;
 import com.fatec.projetoIntegrador4.services.AdministradorService;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class DashController {
@@ -28,30 +30,35 @@ public class DashController {
     
 
 
-    // Index
+    // Login
     @GetMapping("/dashboard/login")
     public String index(Model model) {
-        String name = "";
 
-        List<Administrador> administradores = administradorService.findAll();
-        // ArrayList admArray =  new ArrayList<>(administradores);
-
-        for (Administrador obj : administradores) {
-            name = String.format("" + obj.getName());
-        }
-
-        model.addAttribute("name", name);
-        model.addAttribute("administradores", administradores);
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
         
-        dashControleService.mudarValor("nao logado");
         return "//dashboard/pages/login/index";
+    }
+    @PostMapping("/dashboard/login/login")
+    public String login(HttpServletRequest request) {
+        String name = String.format("" + request.getParameter("name"));
+        String password = String.format("" + request.getParameter("password"));
+        List<Administrador> administradores = administradorService.findAll();
+        for (Administrador obj : administradores) {
+            if(name.equals(obj.getName()) && password.equals(obj.getPassword())){
+                dashControleService.mudarValor("logado");
+                return "redirect:/dashboard/equipe";
+            }
+        }
+        return "redirect:/dashboard/login";
     }
     
 
 
-    // Login
-    @PostMapping("/dashboard/login/login")
-    public String login(HttpServletRequest request) {
+    // Get out
+    @RequestMapping("/dashboard/sair")
+    public String getOut(){
+        dashControleService.mudarValor("nao logado");
         return "redirect:/dashboard/login";
     }
 }

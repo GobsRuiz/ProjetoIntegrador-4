@@ -6,25 +6,23 @@
     <title>Canal Um Fm - Login</title>
 </head>
 <body>
+    <span th:switch="${verificarLogin}">
+        <span th:case="'logado'" id="body">
+            Você já está logado
+        </span>
+        <span th:case="*">
+            <h1>
+                LOGIN - DASHBOARD
+            </h1>
     
-    <h1>
-        LOGIN - DASHBOARD
-    </h1>
-
-    <form action="/dashboard/login/login" method="POST">
-        <input type="submit" value="logar">
-    </form>
-
-    <span th:text="${name}">
-        <br>
+            <form action="/dashboard/login/login" method="POST">
+                <input type="text" name="name" id="name" placeholder="nome">
+                <input type="password" name="password">
+                <button>
+                    login
+                </button>
+            </form>
+        </span>
     </span>
-    
-    <br>
-
-    <span th:each="adm : ${administradores}">
-        <span th:text="${adm.name}"></span>
-        <br>
-    </span>
-
 </body>
 </html>
