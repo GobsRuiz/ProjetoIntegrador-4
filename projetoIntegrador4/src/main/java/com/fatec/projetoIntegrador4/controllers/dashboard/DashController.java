@@ -30,9 +30,20 @@ public class DashController {
     
 
 
+    // Index
+    @GetMapping("/dashboard")
+    public String index(Model model) {
+        String verificarLogin = dashControleService.verificarLogin();
+        model.addAttribute("verificarLogin", verificarLogin);
+
+        return "//dashboard/pages/index/index";
+    }
+
+
+
     // Login
     @GetMapping("/dashboard/login")
-    public String index(Model model) {
+    public String indexLogin(Model model) {
 
         String verificarLogin = dashControleService.verificarLogin();
         model.addAttribute("verificarLogin", verificarLogin);
@@ -47,7 +58,7 @@ public class DashController {
         for (Administrador obj : administradores) {
             if(name.equals(obj.getName()) && password.equals(obj.getPassword())){
                 dashControleService.mudarValor("logado");
-                return "redirect:/dashboard/equipe";
+                return "redirect:/dashboard";
             }
         }
         return "redirect:/dashboard/login";

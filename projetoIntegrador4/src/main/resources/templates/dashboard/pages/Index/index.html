@@ -1,0 +1,16 @@
+<span th:switch="${verificarLogin}">
+    <span th:case="'logado'" id="body">
+        <th:block th:insert="dashboard/components/header"></th:block>
+        
+        <main>
+            <h1>
+                Dashboard - Bem Vindo
+            </h1>
+        </main>
+        
+        <th:block th:insert="dashboard/components/footer"></th:block>
+    </span>
+    <span th:case="*">
+        Não logado
+    </span>
+</span>
