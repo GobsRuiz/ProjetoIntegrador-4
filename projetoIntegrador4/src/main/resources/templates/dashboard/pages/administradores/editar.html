@@ -1,0 +1,24 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/administradores">
+        Voltar
+    </a>
+
+    <h1>
+        Editar administrador: <span th:text="${adm.id}"></span>
+    </h1>
+
+    <div>
+        <form th:action="@{/dashboard/administradores/update/{id}(id=${adm.id})}" th:object="${adm}" method="POST">
+            <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
+            <input type="text" th:field="*{password}" placeholder="password" minlength="3" maxlength="50" required>
+
+            <button>
+                Enviar
+            </button>
+        </form>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

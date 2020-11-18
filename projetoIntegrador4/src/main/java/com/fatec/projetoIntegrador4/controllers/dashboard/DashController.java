@@ -15,9 +15,11 @@ import com.fatec.projetoIntegrador4.services.DashControleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class DashController {
@@ -51,7 +53,15 @@ public class DashController {
         return "//dashboard/pages/login/index";
     }
     @PostMapping("/dashboard/login/login")
-    public String login(HttpServletRequest request) {
+    public String login(HttpServletRequest request, BindingResult result, RedirectAttributes attributes) {
+        if(result.hasErrors()) {
+            attributes.addFlashAttribute("error", "Nome ou senha errada!");
+
+            return "redirect:/dashboard/login";
+        }else{
+            attributes.addFlashAttribute("success", "Logado!");
+        }
+
         String name = String.format("" + request.getParameter("name"));
         String password = String.format("" + request.getParameter("password"));
         List<Administrador> administradores = administradorService.findAll();

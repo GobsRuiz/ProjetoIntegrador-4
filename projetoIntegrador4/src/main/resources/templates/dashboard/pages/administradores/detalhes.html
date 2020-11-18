@@ -1,0 +1,19 @@
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<main>
+    <a href="/dashboard/administradores">
+        Voltar
+    </a>
+
+    <h1>
+        Detalhes do administrador: <span th:text="${adm.id}"></span>
+    </h1>
+
+    <div>
+        <p>
+            Nome: <span th:text="${adm.name}"></span>
+        </p>
+    </div>
+</main>
+
+<th:block th:insert="dashboard/components/footer"></th:block>
