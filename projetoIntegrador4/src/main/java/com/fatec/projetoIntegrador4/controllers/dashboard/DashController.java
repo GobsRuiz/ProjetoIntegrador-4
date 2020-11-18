@@ -53,14 +53,14 @@ public class DashController {
         return "//dashboard/pages/login/index";
     }
     @PostMapping("/dashboard/login/login")
-    public String login(HttpServletRequest request, BindingResult result, RedirectAttributes attributes) {
-        if(result.hasErrors()) {
-            attributes.addFlashAttribute("error", "Nome ou senha errada!");
+    public String login(HttpServletRequest request) {
+        // if(result.hasErrors()) {
+        //     attributes.addFlashAttribute("error", "Nome ou senha errada!");
 
-            return "redirect:/dashboard/login";
-        }else{
-            attributes.addFlashAttribute("success", "Logado!");
-        }
+        //     return "redirect:/dashboard/login";
+        // }else{
+        //     attributes.addFlashAttribute("success", "Logado!");
+        // }
 
         String name = String.format("" + request.getParameter("name"));
         String password = String.format("" + request.getParameter("password"));
