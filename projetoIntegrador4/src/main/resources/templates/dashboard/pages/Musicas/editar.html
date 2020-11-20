@@ -12,6 +12,7 @@
     <div>
         <form th:action="@{/dashboard/musicas/update/{id}(id=${musica.id})}" th:object="${musica}" method="POST">
             <input type="text" th:field="*{name}" minlength="3" maxlength="50" required>
+            <input type="text" th:field="*{top20}" hidden>
             
             <select th:field="*{artista.id}" id="">
                 <option th:each="artista : ${artistas}" th:value="${artista.id}" th:text="${artista.name}">

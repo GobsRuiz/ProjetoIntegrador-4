@@ -63,6 +63,8 @@ public class DashTop20Controller {
 
         Long id = Long.parseLong(request.getParameter("musica_id")); 
         Musica musica = musicaService.findById(id);
+        musica.setTop20("sim");
+        musicaService.save(musica);
         
         top20.setMusica(musica);
         top20Service.save(top20);
@@ -105,9 +107,10 @@ public class DashTop20Controller {
             attributes.addFlashAttribute("success", "Musica do top20 editada com sucesso!");
         }
 
-        Long id = Long.parseLong(request.getParameter("musica")); 
-        Musica musica = musicaService.findById(id);
         
+        Long id = Long.parseLong(request.getParameter("musica"));
+        Musica musica = musicaService.findById(id);
+
         top20.setMusica(musica);
         top20Service.save(top20);
 
@@ -119,9 +122,21 @@ public class DashTop20Controller {
     // Delete
     @RequestMapping("/dashboard/top20/deletar/{id}")
     public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
-        attributes.addFlashAttribute("success", "Musica do top20 deletada com sucesso!");
 
-        top20Service.delete(id);
+        
+        try {
+            Top20 top20 = top20Service.findById(id);
+            Musica musica = musicaService.findById(top20.getMusica().getId());
+            musica.setTop20("nao");
+            musicaService.save(musica);
+            top20Service.delete(id);
+            attributes.addFlashAttribute("success", "Verifique se todos os campos foram preenchidos!");
+        } catch (Exception e) {
+            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
+            return "redirect:/dashboard/top20";
+        }
+        
+        
         return "redirect:/dashboard/top20";
     }
 }

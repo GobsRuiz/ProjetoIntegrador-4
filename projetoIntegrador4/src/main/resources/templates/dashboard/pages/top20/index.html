@@ -10,6 +10,7 @@
             <br>
             <br>
             <span id="alerta" th:text="${success}"></span>
+            <span id="alerta" th:text="${error}"></span>
             <br>
             <br>
         
@@ -60,7 +61,7 @@
         
             <form action="/dashboard/top20/cadastrar" method="post">
                 <select name="musica_id" id="">
-                    <option th:each="musica : ${musicas}" th:value="${musica.id}" th:text="${musica.name}"></option>
+                    <option th:each="musica : ${musicas}" th:if="${musica.top20 == 'nao'}" th:value="${musica.id}" th:text="${musica.name}"></option>
                 </select>
         
                 <button>

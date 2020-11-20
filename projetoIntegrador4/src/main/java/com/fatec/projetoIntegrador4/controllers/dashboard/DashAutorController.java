@@ -10,6 +10,7 @@ import com.fatec.projetoIntegrador4.models.Equipe;
 import com.fatec.projetoIntegrador4.services.AutorService;
 import com.fatec.projetoIntegrador4.services.DashControleService;
 import com.fatec.projetoIntegrador4.services.EquipeService;
+import com.fatec.projetoIntegrador4.services.MusicaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -87,9 +88,15 @@ public class DashAutorController {
     // Delete
     @RequestMapping("/dashboard/autores/deletar/{id}")
     public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
-        attributes.addFlashAttribute("success", "Autor deletado com sucesso!");
 
-        autorService.delete(id);
+        try {
+            autorService.delete(id);
+            attributes.addFlashAttribute("success", "Autor deletado com sucesso!");
+        } catch (Exception e) {
+            attributes.addFlashAttribute("error", "Erro ao deletar!");
+            return "redirect:/dashboard/top20";
+        }
+        
         return "redirect:/dashboard/autores";
     }
 }

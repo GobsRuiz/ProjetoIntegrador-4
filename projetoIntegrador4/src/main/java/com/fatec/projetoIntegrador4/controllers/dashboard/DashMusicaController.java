@@ -71,6 +71,7 @@ public class DashMusicaController {
         
         // autor.setName(artista.getName());
         musica.setArtista(artista);
+        musica.setTop20("nao");
         musicaService.save(musica);
         return "redirect:/dashboard/musicas";
     }
@@ -111,11 +112,13 @@ public class DashMusicaController {
             attributes.addFlashAttribute("success", "Musica editada com sucesso!");
         }
 
+        String var_top20 = request.getParameter("top20");
         Long id = Long.parseLong(request.getParameter("artista.id")); 
         Artista artista = artistaService.findById(id);
         
         // autor.setName(artista.getName());
         musica.setArtista(artista);
+        musica.setTop20(var_top20);
         musicaService.save(musica);
 
         return "redirect:/dashboard/musicas";

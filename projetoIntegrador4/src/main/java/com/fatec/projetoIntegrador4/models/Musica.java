@@ -24,6 +24,8 @@ public class Musica {
     @Size(min=3, max=100)
     private String name;
 
+    private String top20;
+
     @ManyToOne()
     @JoinColumn(name = "artista_id", referencedColumnName = "id")
     private Artista artista;
@@ -63,5 +65,13 @@ public class Musica {
 
     public void setTop20s(List<Top20> top20s) {
         this.top20s = top20s;
+    }
+
+    public String getTop20() {
+        return top20;
+    }
+
+    public void setTop20(String top20) {
+        this.top20 = top20;
     }
 }
