@@ -26,13 +26,15 @@ public class DashPedirMusica {
 
 
     // Index
-    @GetMapping("/dashboard/pedir-musica")
+    @GetMapping("/dashboard/pedidos-musicais")
     public String index(Model model){
         List<PedirMusica> pedirMusicas = pedirMusicaService.findAll();
         model.addAttribute("pedirMusicas", pedirMusicas);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/pedirMusica/index";
     }
@@ -40,7 +42,7 @@ public class DashPedirMusica {
 
 
     // Show
-    @GetMapping("/dashboard/pedir-musica/detalhes/{id}")
+    @GetMapping("/dashboard/pedidos-musicais/detalhes/{id}")
     public String show(@PathVariable("id") Long id, Model model){
         PedirMusica pedirMusica = pedirMusicaService.findById(id);
         model.addAttribute("pedirMusica", pedirMusica);
@@ -50,11 +52,11 @@ public class DashPedirMusica {
 
 
     // Delete
-    @RequestMapping("/dashboard/pedir-musica/deletar/{id}")
+    @RequestMapping("/dashboard/pedidos-musicais/deletar/{id}")
     public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
         attributes.addFlashAttribute("success", "Pedido de música deletado com sucesso!");
 
         pedirMusicaService.delete(id);
-        return "redirect:/dashboard/pedir-musica";
+        return "redirect:/dashboard/pedidos-musicais";
     }
 }

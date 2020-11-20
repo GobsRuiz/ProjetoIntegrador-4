@@ -35,9 +35,11 @@ public class DashAdministrador {
     public String index(Model model){
         List<Administrador> administradores = administradorService.findAll();
         model.addAttribute("administradores", administradores);
-
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+       
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/administradores/index";
     }

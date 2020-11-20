@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DashControleImplementsService implements DashControleService{
 
-    String varLogin = "logado";
+    String varLogin = "nao logado";
     
     public String verificarLogin(){
         return varLogin;

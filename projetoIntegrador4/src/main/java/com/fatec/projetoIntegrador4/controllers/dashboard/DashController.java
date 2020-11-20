@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.JOptionPane;
 
 import com.fatec.projetoIntegrador4.models.Administrador;
 import com.fatec.projetoIntegrador4.services.AdministradorService;
@@ -15,11 +14,9 @@ import com.fatec.projetoIntegrador4.services.DashControleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class DashController {
@@ -35,10 +32,12 @@ public class DashController {
     // Index
     @GetMapping("/dashboard")
     public String index(Model model) {
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
-        return "//dashboard/pages/index/index";
+        return "/dashboard/pages/index/index";
     }
 
 
@@ -46,28 +45,21 @@ public class DashController {
     // Login
     @GetMapping("/dashboard/login")
     public String indexLogin(Model model) {
-
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar == "logado"){
+            return "redirect:/dashboard";
+        }
         
-        return "//dashboard/pages/login/index";
+        return "/dashboard/pages/login/index";
     }
     @PostMapping("/dashboard/login/login")
     public String login(HttpServletRequest request) {
-        // if(result.hasErrors()) {
-        //     attributes.addFlashAttribute("error", "Nome ou senha errada!");
-
-        //     return "redirect:/dashboard/login";
-        // }else{
-        //     attributes.addFlashAttribute("success", "Logado!");
-        // }
-
         String name = String.format("" + request.getParameter("name"));
         String password = String.format("" + request.getParameter("password"));
         List<Administrador> administradores = administradorService.findAll();
         for (Administrador obj : administradores) {
             if(name.equals(obj.getName()) && password.equals(obj.getPassword())){
-                dashControleService.mudarValor("logado");
+                dashControleService.mudarValor("logado");;
                 return "redirect:/dashboard";
             }
         }

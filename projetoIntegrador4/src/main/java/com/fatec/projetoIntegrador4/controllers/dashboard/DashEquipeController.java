@@ -42,8 +42,10 @@ public class DashEquipeController {
         List<Equipe> equipes = equipeService.findAll();
         model.addAttribute("equipes", equipes);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "//dashboard/pages/equipe/index";
     }

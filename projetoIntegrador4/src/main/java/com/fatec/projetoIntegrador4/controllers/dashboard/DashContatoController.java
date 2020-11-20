@@ -32,8 +32,10 @@ public class DashContatoController {
         List<Contato> contatos = contatoService.findAll();
         model.addAttribute("contatos", contatos);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/contato/index";
     }

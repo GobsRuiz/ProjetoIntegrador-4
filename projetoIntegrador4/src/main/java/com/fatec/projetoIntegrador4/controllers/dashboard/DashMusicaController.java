@@ -47,8 +47,10 @@ public class DashMusicaController {
         List<Artista> artistas = artistaService.findAll();
         model.addAttribute("artistas", artistas);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/musicas/index";
     }

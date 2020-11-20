@@ -1,6 +1,8 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
 
         <main>
             <h1>
@@ -48,10 +50,7 @@
                 <br>
             </div>
         </main>
-
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+        
+    </div>
+</div>
+<th:block th:insert="dashboard/components/footer"></th:block>

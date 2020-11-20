@@ -43,8 +43,10 @@ public class DashAutorController {
         List<Equipe> equipes = equipeService.findAll();
         model.addAttribute("equipes", equipes);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/autores/index";
     }
@@ -87,16 +89,10 @@ public class DashAutorController {
 
     // Delete
     @RequestMapping("/dashboard/autores/deletar/{id}")
-    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes){
+    public String destroy(@PathVariable("id") Long id, RedirectAttributes attributes) {
+        attributes.addFlashAttribute("success", "Autor deletado com sucesso!");
 
-        try {
-            autorService.delete(id);
-            attributes.addFlashAttribute("success", "Autor deletado com sucesso!");
-        } catch (Exception e) {
-            attributes.addFlashAttribute("error", "Erro ao deletar!");
-            return "redirect:/dashboard/top20";
-        }
-        
+        autorService.delete(id);
         return "redirect:/dashboard/autores";
     }
 }

@@ -1,18 +1,20 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
-        
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
+
         <main>
             <h1>
                 Autor
             </h1>
-        
+
             <br>
             <br>
             <span id="alerta" th:text="${success}"></span>
             <br>
             <br>
-        
+
             <div th:each="autor : ${autores}">
                 <p>
                     Id: <span th:text="${autor.id}"></span>
@@ -20,20 +22,18 @@
                 <p>
                     Nome: <span th:text="${autor.name}"></span>
                 </p>
-                <p th:each="equipe : ${equipes}">
-                </p>
-        
+
                 <br>
-        
+
                 <div>
                     <a th:href="@{/dashboard/autores/detalhes/{id}(id=${autor.id})}">
                         Detalhes
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
+
                     <a th:href="@{/dashboard/autores/deletar/{id}(id=${autor.id})}">
                         Deletar
                     </a>
@@ -52,16 +52,13 @@
                         <option th:each="equipe : ${equipes}" th:if="${equipe.funcao_autor == 'nao'}" th:value="${equipe.id}" th:text="${equipe.name}">
                         </option>
                 </select>
-        
+
                 <button>
                     Enviar
                 </button>
             </form>
         </main>
-        
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+
+    </div>
+</div>
+<th:block th:insert="dashboard/components/footer"></th:block>

@@ -1,75 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <title>Dashboard - Painel de controle</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <!-- Bootstrap -->
+    <link th:href="@{/css/dashboard/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- styles -->
+    <link th:href="@{/css/dashboard/styles.css}" rel="stylesheet">
 </head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    #body{
-        display: flex;
-    }
-    :root{
-        --header_width: 15%; 
-    }
-    header{
-        width: var(--header_width);
-        height: 100vh;
-
-        background-color: blue;
-
-        position: fixed;
-    }
-    main{
-        margin-left: var(--header_width);
-    }
-    header a{
-        font-size: 20px;
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        margin: 30px 0;
-    }
-</style>
 <body>
-
-    <header>
-        <a href="/dashboard/administradores">
-            administradores
-        </a>
-        <a href="/dashboard/equipe">
-            equipe
-        </a>
-        <a href="/dashboard/programas">
-            programas
-        </a>
-        <a href="/dashboard/autores">
-            autores
-        </a>
-        <a href="/dashboard/noticias">
-            notícias
-        </a>
-        <a href="/dashboard/artistas">
-            artistas
-        </a>
-        <a href="/dashboard/musicas">
-            musicas
-        </a>
-        <a href="/dashboard/top20">
-            top20
-        </a>
-        <a href="/dashboard/contato">
-            contato
-        </a>
-        <a href="/dashboard/pedir-musica">
-            pedir música
-        </a>
-        <a href="/dashboard/sair">
-            Sair
-        </a>
-    </header>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <h1><a href="index.html">Painel de Controle</a></h1>
+                    </div>
+                </div>
     
+                <div class="col-md-2">
+                    <div class="navbar navbar-inverse" role="banner">
+                        <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Minha conta <b class="caret"></b></a>
+                                    <ul class="dropdown-menu animated fadeInUp">
+                                        <li><a href="login.html">Sair</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

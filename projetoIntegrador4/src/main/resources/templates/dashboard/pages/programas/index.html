@@ -1,18 +1,20 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
-        
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
+
         <main>
             <h1>
                 Programação
             </h1>
-        
+
             <br>
             <br>
             <span id="alerta" th:text="${success}"></span>
             <br>
             <br>
-        
+
             <div th:each="programa : ${programas}">
                 <p>
                     Nome: <span th:text="${programa.name}"></span>
@@ -32,54 +34,54 @@
                 <p>
                     Locutor: <span th:text="${programa.equipe.name}"></span>
                 </p>
-        
+
                 <br>
-        
+
                 <div>
                     <a th:href="@{/dashboard/programas/detalhes/{id}(id=${programa.id})}">
                         Detalhes
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
+
                     <a th:href="@{/dashboard/programas/editar/{id}(id=${programa.id})}">
                         Editar
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
+
                     <a th:href="@{/dashboard/programas/deletar/{id}(id=${programa.id})}">
                         Deletar
                     </a>
                 </div>
-        
+
                 <br>
                 <hr>
                 <br>
-        
+
             </div>
-        
+
             <br>
             <br>
-        
+
             <h1>
                 Cadastrar
             </h1>
-        
+
             <form action="/dashboard/programas/cadastrar" method="post">
                 <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
-        
+
                 <select name="equipe_id" id="">
                         <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor'}" th:value="${equipe.id}" th:text="${equipe.name}">
                         </option>
                         <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor Noticialista'}" th:value="${equipe.id}" th:text="${equipe.name}">
                         </option>
                 </select>
-        
+
                 <input type="text" name="estilo" placeholder="Estilo" minlength="3" maxlength="50" required>
 
                 <select name="horario" id="" required>
@@ -103,7 +105,7 @@
                         Madrugada
                     </option>
                 </select>
-        
+
                 <select name="segmentacao" id="">
                     <option value="Live para todos os públicos">
                         Livre para todos os públicos
@@ -112,18 +114,16 @@
                         Adulto
                     </option>
                 </select>
-        
+
                 <button>
                     Enviar
                 </button>
             </form>
-        
+
             <br>
         </main>
-        
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+    
+    </div>
+</div>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

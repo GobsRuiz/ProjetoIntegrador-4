@@ -1,16 +1,25 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
         
-        <main>
-            <h1>
-                Dashboard - Bem Vindo
-            </h1>
-        </main>
-        
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12 panel-success">
+                    <div class="content-box-header panel-heading">
+                        <div class="panel-title ">Bem vindo!</div>
+                        
+                        
+                    </div>
+                    <div class="content-box-large box-with-header">
+                        Há coisas a serem administradas!
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

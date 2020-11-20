@@ -51,8 +51,10 @@ public class DashNoticiaController {
         List<Autor> autores = autorService.findAll();
         model.addAttribute("autores", autores);
 
-        String verificarLogin = dashControleService.verificarLogin();
-        model.addAttribute("verificarLogin", verificarLogin);
+        String verificar = dashControleService.verificarLogin();
+        if(verificar != "logado"){
+            return "redirect:/dashboard/login";
+        }
 
         return "/dashboard/pages/noticias/index";
     }

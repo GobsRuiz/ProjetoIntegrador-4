@@ -1,18 +1,21 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
-        
+
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
+
         <main>
             <h1>
                 Pedidos de música
             </h1>
-        
+
             <br>
             <br>
             <span id="alerta" th:text="${success}"></span>
             <br>
             <br>
-        
+
             <div th:each="pedirMusica : ${pedirMusicas}">
                 <p>
                     Nome: <span th:text="${pedirMusica.name}"></span>
@@ -26,32 +29,30 @@
                 <p>
                     Telefone: <span th:text="${pedirMusica.message}"></span>
                 </p>
-        
+
                 <br>
-        
+
                 <div>
-                    <a th:href="@{/dashboard/pedir-musica/detalhes/{id}(id=${pedirMusica.id})}">
+                    <a th:href="@{/dashboard/pedidos-musicais/detalhes/{id}(id=${pedirMusica.id})}">
                         Detalhes
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
-                    <a th:href="@{/dashboard/pedir-musica/deletar/{id}(id=${pedirMusica.id})}">
+
+                    <a th:href="@{/dashboard/pedidos-musicais/deletar/{id}(id=${pedirMusica.id})}">
                         Deletar
                     </a>
                 </div>
-        
+
                 <br>
                 <br>
                 <br>
             </div>
         </main>
-        
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+
+    </div>
+</div>
+
+<th:block th:insert="dashboard/components/footer"></th:block>

@@ -1,60 +1,62 @@
-<span th:switch="${verificarLogin}">
-    <span th:case="'logado'" id="body">
-        <th:block th:insert="dashboard/components/header"></th:block>
-        
+<th:block th:insert="dashboard/components/header"></th:block>
+
+<div class="page-content">
+    <div class="row">
+        <th:block th:insert="dashboard/components/navegacao"></th:block>
+
         <main>
             <h1>
                 Administradores
             </h1>
-        
+
             <br>
             <br>
             <span id="alerta" th:text="${success}"></span>
             <br>
             <br>
-        
+
             <div th:each="adm : ${administradores}">
                 <p>
                     Nome: <span th:text="${adm.name}"></span>
                 </p>
-        
+
                 <br>
-        
+
                 <div>
                     <a th:href="@{/dashboard/administradores/detalhes/{id}(id=${adm.id})}">
                         Detalhes
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
+
                     <a th:href="@{/dashboard/administradores/editar/{id}(id=${adm.id})}">
                         Editar
                     </a>
-        
+
                     &nbsp;
                     &nbsp;
                     &nbsp;
-        
+
                     <a th:href="@{/dashboard/administradores/deletar/{id}(id=${adm.id})}">
                         Deletar
                     </a>
                 </div>
-        
+
                 <br>
                 <hr>
                 <br>
             </div>
-        
+
             <br>
             <br>
             <br>
-        
+
             <h1>
                 Cadastrar
             </h1>
-        
+
             <form action="/dashboard/administradores/cadastrar" method="post">
                 <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
                 <input type="password" name="password" minlength="3" maxlength="50" required>
@@ -63,13 +65,9 @@
                     Enviar
                 </button>
             </form>
-        
+
             <br>
         </main>
-        
-        <th:block th:insert="dashboard/components/footer"></th:block>
-    </span>
-    <span th:case="*">
-        Não logado
-    </span>
-</span>
+    </div>
+</div>
+<th:block th:insert="dashboard/components/footer"></th:block>
