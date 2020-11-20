@@ -63,7 +63,9 @@ public class DashAutorController {
 
         Long id = Long.parseLong(request.getParameter("equipe_id")); 
         Equipe equipe = equipeService.findById(id);
-        
+        equipe.setFuncao_autor("sim");
+        equipeService.save(equipe);
+
         autor.setName(equipe.getName());
         autor.setEquipe(equipe);
         autorService.save(autor);
@@ -78,35 +80,6 @@ public class DashAutorController {
         Autor autor = autorService.findById(id);
         model.addAttribute("autor", autor);
         return "/dashboard/pages/autores/detalhes";
-    }
-
-
-
-    // Edit
-    @GetMapping("/dashboard/autores/editar/{id}")
-    public String edit(@PathVariable("id") Long id, Model model)
-    {   
-        Autor autor = autorService.findById(id);
-        model.addAttribute("autor", autor);
-
-        List<Equipe> equipes = equipeService.findAll();
-        model.addAttribute("equipes", equipes);
-        
-        return "/dashboard/pages/autores/editar";
-    }
-
-    @RequestMapping("/dashboard/autores/update/{id}")
-    public String update(@Valid Autor autor, BindingResult result, RedirectAttributes attributes, Model model)
-    {
-        if(result.hasErrors()) {
-            attributes.addFlashAttribute("error", "Verifique se todos os campos foram preenchidos!");
-
-            return "redirect:/dashboard/autores";
-        }else{
-            attributes.addFlashAttribute("success", "Autor editado com sucesso!");
-        }
-
-        return "redirect:/dashboard/autores";
     }
 
 

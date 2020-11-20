@@ -20,20 +20,14 @@
                 <p>
                     Nome: <span th:text="${autor.name}"></span>
                 </p>
+                <p th:each="equipe : ${equipes}">
+                </p>
         
                 <br>
         
                 <div>
                     <a th:href="@{/dashboard/autores/detalhes/{id}(id=${autor.id})}">
                         Detalhes
-                    </a>
-        
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-        
-                    <a th:href="@{/dashboard/autores/editar/{id}(id=${autor.id})}">
-                        Editar
                     </a>
         
                     &nbsp;
@@ -48,20 +42,18 @@
                 <br>
                 <hr>
                 <br>
-        
+                <br>
+                <br>
+                <br>    
             </div>
-        
-            <br>
-            <br>
-        
+
             <h1>
                 Cadastrar
             </h1>
-        
             <form action="/dashboard/autores/cadastrar" method="post">
-                <select name="equipe_id" id="">
+                <select name="equipe_id" id="" required>
                         <!-- th:if="${equipe.id != autor.equipe.id}" -->
-                        <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
+                        <option th:each="equipe : ${equipes}" th:if="${equipe.funcao_autor == 'nao'}" th:value="${equipe.id}" th:text="${equipe.name}">
                         </option>
                 </select>
         
@@ -69,8 +61,6 @@
                     Enviar
                 </button>
             </form>
-        
-            <br>
         </main>
         
         <th:block th:insert="dashboard/components/footer"></th:block>

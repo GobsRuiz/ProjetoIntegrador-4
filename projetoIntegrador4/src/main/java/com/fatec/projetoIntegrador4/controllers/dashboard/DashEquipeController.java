@@ -75,6 +75,7 @@ public class DashEquipeController {
             return returnValue;
         }
 
+        equipe.setFuncao_autor("nao");
         equipe.setPath(path);
         equipeService.save(equipe);
         
@@ -132,6 +133,9 @@ public class DashEquipeController {
             return "redirect:/dashboard/equipe";
         }
 
+        String funcao_autor = request.getParameter("funcao_autor");
+
+        equipe.setFuncao_autor(funcao_autor);
         equipeService.save(equipe);
         return "redirect:/dashboard/equipe";
     }

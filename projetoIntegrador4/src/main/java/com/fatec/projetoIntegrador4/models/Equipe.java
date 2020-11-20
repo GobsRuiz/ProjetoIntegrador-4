@@ -27,6 +27,8 @@ public class Equipe {
     @NotNull
     private String funcao;
 
+    private String funcao_autor;
+
     private String path;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -82,5 +84,13 @@ public class Equipe {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getFuncao_autor() {
+        return funcao_autor;
+    }
+
+    public void setFuncao_autor(String funcao_autor) {
+        this.funcao_autor = funcao_autor;
     }
 }
