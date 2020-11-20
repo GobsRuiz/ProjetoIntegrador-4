@@ -111,7 +111,7 @@ public class DashMusicaController {
             attributes.addFlashAttribute("success", "Musica editada com sucesso!");
         }
 
-        Long id = Long.parseLong(request.getParameter("artista_id")); 
+        Long id = Long.parseLong(request.getParameter("artista.id")); 
         Artista artista = artistaService.findById(id);
         
         // autor.setName(artista.getName());

@@ -144,7 +144,7 @@ public class DashNoticiaController {
         // Variáveis
         String titulo = request.getParameter("titulo");
         String texto = request.getParameter("texto");
-        Long id = Long.parseLong(request.getParameter("autor_id")); 
+        Long id = Long.parseLong(request.getParameter("autor.id")); 
         Autor autor = autorService.findById(id);
         String returnValue = "start";
 

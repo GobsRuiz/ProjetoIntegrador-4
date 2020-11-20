@@ -19,8 +19,6 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-	@NotNull
-	@Size(min=3, max=50)
     private String name;
 
     @OneToOne()

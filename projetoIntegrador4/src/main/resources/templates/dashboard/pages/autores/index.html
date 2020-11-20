@@ -59,9 +59,8 @@
             </h1>
         
             <form action="/dashboard/autores/cadastrar" method="post">
-                <select name="equipe_id" id="" required>
+                <select name="equipe_id" id="">
                         <!-- th:if="${equipe.id != autor.equipe.id}" -->
-                        
                         <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
                         </option>
                 </select>
