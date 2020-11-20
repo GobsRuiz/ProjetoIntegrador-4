@@ -125,7 +125,7 @@ public class DashProgramacaoController {
         String horario = request.getParameter("horario");
         String periodo = request.getParameter("periodo");
         String segmentacao = request.getParameter("segmentacao");
-        Long id = Long.parseLong(request.getParameter("equipe_id")); 
+        Long id = Long.parseLong(request.getParameter("equipe")); 
         Equipe equipe = equipeService.findById(id);
 
         // Cadastro

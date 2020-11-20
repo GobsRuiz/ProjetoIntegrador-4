@@ -21,6 +21,9 @@
                     Estilo: <span th:text="${programa.estilo}"></span>
                 </p>
                 <p>
+                    Perídodo: <span th:text="${programa.periodo}"></span>
+                </p>
+                <p>
                     Horário: <span th:text="${programa.horario}"></span>
                 </p>
                 <p>
@@ -78,9 +81,15 @@
                 </select>
         
                 <input type="text" name="estilo" placeholder="Estilo" minlength="3" maxlength="50" required>
-        
-                <input type="text" name="horario" placeholder="horario" minlength="3" maxlength="50" required>
-                <select name="periodo" id="">
+
+                <select name="horario" id="" required>
+                    <option th:each="i : ${#numbers.sequence( 0, 9)}" th:text="'0' + ${i} + ':00'" th:value="'0' + ${i} + ':00'">
+                    </option>
+                    <option th:each="i : ${#numbers.sequence( 10, 23)}" th:text="${i} + ':00'" th:value="${i} + ':00'">
+                    </option>
+                </select>
+
+                <select name="periodo" id="" required>
                     <option value="Matutino">
                         Matutino
                     </option>

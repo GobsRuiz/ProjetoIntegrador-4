@@ -21,18 +21,16 @@ public class Programacao {
     private String name;
 
     @NotNull
-    @Size(min=3, max=50)
+    @Size(min=3, max=100)
     private String estilo;
 
     @NotNull
-    @Size(min=3, max=50)
     private String horario;
 
     @NotNull
     private String periodo;
 
     @NotNull
-    @Size(min=3, max=50)
     private String segmentacao;
 
     @ManyToOne()

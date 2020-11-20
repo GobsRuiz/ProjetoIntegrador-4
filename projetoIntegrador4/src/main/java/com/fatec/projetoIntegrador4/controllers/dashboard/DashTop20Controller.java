@@ -105,7 +105,7 @@ public class DashTop20Controller {
             attributes.addFlashAttribute("success", "Musica do top20 editada com sucesso!");
         }
 
-        Long id = Long.parseLong(request.getParameter("musica_id")); 
+        Long id = Long.parseLong(request.getParameter("musica")); 
         Musica musica = musicaService.findById(id);
         
         top20.setMusica(musica);

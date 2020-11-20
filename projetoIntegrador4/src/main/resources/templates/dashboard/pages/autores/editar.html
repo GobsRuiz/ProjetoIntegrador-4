@@ -11,7 +11,7 @@
 
     <div>
         <form th:action="@{/dashboard/autores/update/{id}(id=${autor.id})}" th:object="${autor}" method="POST">
-            <select th:field="*{equipe.id}" id="">
+            <select th:field="*{equipe}" id="">
                 <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
                 </option>
             </select>

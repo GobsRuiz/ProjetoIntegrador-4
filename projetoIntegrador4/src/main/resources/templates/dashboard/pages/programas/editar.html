@@ -12,34 +12,24 @@
     <div>
         <form th:action="@{/dashboard/programas/update/{id}(id=${programa.id})}" th:object="${programa}" method="post">
             <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
-            <br>
-            <br>
-
-            <label for="">
-                Membro da equipe cadastro neste programa
-            </label>
-            <hr>
-            <span th:text="*{equipe.id}"></span>
-            <span th:text="*{equipe.name}"></span>
-            <br>
-            <input type="text" th:field="*{equipe.id}" placeholder="equipe_id" disabled>
-            <input type="text" th:field="*{equipe.name}" placeholder="equipe_id" disabled>
-            <hr>
-            <br>
-            <label for="">Cadastre outro membrom da equipe ou selecione o mesmo</label>
-            <select name="equipe_id" id="">
+           
+            <select th:field="*{equipe}" id="">
                 <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor'}" th:value="${equipe.id}" th:text="${equipe.name}">
                 </option>
                 <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor Noticialista'}" th:value="${equipe.id}" th:text="${equipe.name}">
                 </option>
             </select>
 
-            <br>
-            <br>
             <input type="text" th:field="*{estilo}" placeholder="estilo" minlength="3" maxlength="50" required>
 
-            <input type="text" th:field="*{horario}" placeholder="horario" minlength="3" maxlength="50" required>
-            <select name="periodo" id="">
+            <select th:field="*{horario}" id="" required>
+                <option th:each="i : ${#numbers.sequence( 0, 9)}" th:text="'0' + ${i} + ':00'" th:value="'0' + ${i} + ':00'">
+                </option>
+                <option th:each="i : ${#numbers.sequence( 10, 23)}" th:text="${i} + ':00'" th:value="${i} + ':00'">
+                </option>
+            </select>
+
+            <select th:field="*{periodo}" id="">
                 <option value="Matutino">
                     Matutino
                 </option>
@@ -54,7 +44,7 @@
                 </option>
             </select>
 
-            <select name="segmentacao" id="">
+            <select th:field="*{segmentacao}" id="">
                 <option value="Live para todos os públicos">
                     Livre para todos os públicos
                 </option>
