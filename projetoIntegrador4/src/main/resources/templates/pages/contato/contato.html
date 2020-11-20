@@ -9,11 +9,10 @@
 
         <div class="row">
             <form action="/contato/cadastrar" method="post">
-
                 <input type="text" placeholder="Nome" name="name" class="nome" required minlength="3" maxlength="50"/>
-                <input type="email" placeholder="E-mail" name="email" class="email" required maxlength="50"/>
-                <textarea name="message" class="nome" cols="30" rows="10" placeholder="Mensagem" required minlength="10" maxlength="300"></textarea>
-                <input type="text" placeholder="Telefone" name="phone" class="email" required minlength="11" maxlength="13"/>
+                <input type="email" placeholder="E-mail" name="email" class="email" required/>
+                <textarea name="message" class="nome" cols="30" rows="10" placeholder="Mensagem" required minlength="10" maxlength="500"></textarea>
+                <input type="text" placeholder="Telefone" name="phone" class="email" minlength="11" maxlength="13" required/>
 
                 <button class="" type="submit">Enviar</button>
             </form>

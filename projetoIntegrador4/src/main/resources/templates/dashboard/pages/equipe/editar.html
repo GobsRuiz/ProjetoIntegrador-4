@@ -4,22 +4,45 @@
     <a href="/dashboard/equipe">
         Voltar
     </a>
+    
 
     <h1>
         Editar membro da equipe: <span th:text="${equipe.id}"></span>
     </h1>
 
+    <br>
+    <br>
+    <span id="alerta" th:text="${error}"></span>
+    <br>
+    <br>
+
     <div>
         <form th:action="@{/dashboard/equipe/update/{id}(id=${equipe.id})}" th:object="${equipe}" method="POST" enctype="multipart/form-data">
             <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
-            <input type="text" th:field="*{funcao}" placeholder="Função" minlength="3" maxlength="50" required>
-        
+            
             <br>
-            <img th:src="*{path}" alt="" height="100px">
             <br>
-            Escolher outra imagem ?
-            <input type="file" id="imageFile" name="imageFile" >
             <br>
+
+            <img th:src="*{path}" alt="" width="50px">
+            <input type="text" th:field="*{path}" hidden>
+            <input type="file" id="imageFile" name="imageFile">
+
+            <br>
+            <br>
+            <br>
+
+            <select th:field="*{funcao}" id="" required>
+                <option value="Locutor">
+                    Locutor
+                </option>
+                <option value="Locutor Noticialista">
+                    Locutor Noticialista
+                </option>
+                <option value="Repórter">
+                    Repórter
+                </option>
+            </select>
 
             <button>
                 Enviar

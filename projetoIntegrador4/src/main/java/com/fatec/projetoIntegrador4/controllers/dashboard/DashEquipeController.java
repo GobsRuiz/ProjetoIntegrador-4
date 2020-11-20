@@ -129,7 +129,7 @@ public class DashEquipeController {
             equipe.setPath(path);
             equipeService.save(equipe);
             
-            return "redirect:/dashboard/noticias";
+            return "redirect:/dashboard/equipe";
         }
 
         equipeService.save(equipe);

@@ -24,7 +24,7 @@ public class Contato {
     private String email;
 
     @NotNull
-    @Size(min=10, max=300)
+    @Size(min=10, max=500)
     private String message;
 
     @NotNull

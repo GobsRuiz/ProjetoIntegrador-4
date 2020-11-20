@@ -13,7 +13,7 @@
         <form th:action="@{/dashboard/autores/update/{id}(id=${autor.id})}" th:object="${autor}" method="POST">
             <input type="text" th:field="*{equipe.id}" placeholder="Nome" disabled>
         
-            <select name="equipe_id" id="">
+            <select name="equipe_id" id="" required>
                 <option th:each="equipe : ${equipes}" th:value="${equipe.id}" th:text="${equipe.name}">
                 </option>
             </select>

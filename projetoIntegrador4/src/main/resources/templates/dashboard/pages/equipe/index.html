@@ -65,8 +65,8 @@
         
             <form action="/dashboard/equipe/cadastrar" method="post" enctype="multipart/form-data">
                 <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
-                <input type="file" id="imageFile" name="imageFile">
-                <select name="funcao" id="">
+                <input type="file" id="imageFile" name="imageFile" required>
+                <select name="funcao" id="" required>
                     <option value="Locutor">
                         Locutor
                     </option>
