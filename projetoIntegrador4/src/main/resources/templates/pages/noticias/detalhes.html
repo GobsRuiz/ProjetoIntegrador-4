@@ -1,0 +1,17 @@
+<!-- Include header -->
+<th:block th:insert="pages/components/header"></th:block>
+
+<main style="text-align: center;">
+    <img th:src="${noticia.path}" alt="" width="100%" height="400">
+    <h1 th:text="${noticia.titulo}"></h1>
+    <p th:text="${noticia.texto}"></p>
+</main>
+
+<!-- Scripts -->
+<script th:src="@{/js/noticiaSlider.js}"></script>
+<script th:src="@{/js/limiteCaracteres.js}"></script>
+
+<!-- Include footer -->
+<th:block th:insert="pages/components/footer"></th:block>
+
+

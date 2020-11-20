@@ -24,7 +24,7 @@ public class Noticia {
     private String data;
 
     @NotNull
-    @Lob
+    @Size(min=30, max=3000)
     private String texto;
 
     public String path;
