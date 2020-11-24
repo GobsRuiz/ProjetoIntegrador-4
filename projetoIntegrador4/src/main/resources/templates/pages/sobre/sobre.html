@@ -2,11 +2,11 @@
 <th:block th:insert="pages/components/header"></th:block>
 
 <main class="background-banner-color">
-    <section class="wrapper-section">
+    <section class="wrapper-section" style="position: relative;">
         <div class="content" title="Texto sobre a rádio">
-            <h2 class="title-banner">A rádio</h2>
+            <h2 class="title-banner tituloIdioma">A rádio</h2>
             <hr class="border" />
-            <p class="description-text-banner">A Rádio CANAL UM FM 93,7 está situada à Avenida Francisco Area Leão, nº 1200, Nova Prudente, Taquaritinga-SP, entrou no ar aos 10 minutos do dia 22 de setembro de 1988, oito meses depois de outorgada, um recorde nacional até agora não
+            <p class="description-text-banner textoIdioma">A Rádio CANAL UM FM 93,7 está situada à Avenida Francisco Area Leão, nº 1200, Nova Prudente, Taquaritinga-SP, entrou no ar aos 10 minutos do dia 22 de setembro de 1988, oito meses depois de outorgada, um recorde nacional até agora não
                 superado. Rádio que hoje, com 35.000 Watts (classe A1), leva seu nome para 180 cidades do estado de São Paulo pelas ondas do rádio no Brasil e mundo pela internet.
             </p>
 
@@ -15,6 +15,13 @@
         <div class="wrapper-div">
             <img class="photo-jpg" src="img/radiopngfinal.png" alt="Garota ouvindo música" />
         </div>
+
+        <div id="bandeiras">
+            <img src="img/bandeira-inglaterra.png" alt="Bandeira da inglaterra" class="bandeiras-bandeira" />
+            <span class="bandeiras-legenda">Change language to english</span>
+            <img src="img/bandeira-brasil.png" alt="Bandeira da inglaterra" class="bandeiras-bandeira" />
+            <span class="bandeiras-legenda">Mudar idioma para português</span>
+        </div>
     </section>
 </main>
 
@@ -22,8 +29,8 @@
     <div class="cen">
         <div class="service">
             <i class="fas fa-ticket-alt"></i>
-            <h2>entreterimento</h2>
-            <p> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
+            <h2 class="tituloIdioma">Entreterimento</h2>
+            <p class="textoIdioma"> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
                 crescem a cada dia e o entrelaçamento destas parcerias sempre nos abre os caminhos do sucesso. </p>
         </div>
 
@@ -31,8 +38,8 @@
     <div class="cen">
         <div class="service">
             <i class="fas fa-building"></i>
-            <h2>estrutura física</h2>
-            <p> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
+            <h2 class="tituloIdioma">Estrutura física</h2>
+            <p class="textoIdioma"> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
                 crescem a cada dia e o entrelaçamento destas parcerias sempre nos abre os caminhos do sucesso. </p>
         </div>
 
@@ -40,8 +47,8 @@
     <div class="cen">
         <div class="service">
             <i class="fas fa-newspaper"></i>
-            <h2>PERFIL PERSONALIZADO</h2>
-            <p> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
+            <h2 class="tituloIdioma">Perfil personalizado</h2>
+            <p class="textoIdioma"> O perfil da emissora se notabiliza pelo Jornalismo autêntico, sério e responsável e com uma programação diversificada atinge todos os gêneros musicais. As promoções criativas, associadas à fidelidade dos nossos ouvintes e anunciantes,
                 crescem a cada dia e o entrelaçamento destas parcerias sempre nos abre os caminhos do sucesso. </p>
         </div>
 
@@ -49,14 +56,17 @@
     <div class="cen">
         <div class="service">
             <i class="fas fa-desktop"></i>
-            <h2>PIONEIRA EM TECNOLOGIA</h2>
-            <p> A Rádio CANAL UM FM 93,7 opera com o sistema Audio-Vault Digital, com capacidade para operar 72 horas automaticamente. Esse SISTEMA COMPUTADORIZADO, melhora a altíssima definição de áudio, já que o seu grau de distorção não passa de 0,001%.
+            <h2 class="tituloIdioma">Pioneira em tecnologia</h2>
+            <p class="textoIdioma"> A Rádio CANAL UM FM 93,7 opera com o sistema Audio-Vault Digital, com capacidade para operar 72 horas automaticamente. Esse SISTEMA COMPUTADORIZADO, melhora a altíssima definição de áudio, já que o seu grau de distorção não passa de 0,001%.
                 Neste Sistema a Emissora utiliza todos os programas musicais facilitando a área jornalística a trabalhar diretamente com a INTERNET em computadores ligados ao estúdio. Em abril de 1995, tornou-se a pioneira também ao transmitir no
                 SISTEMA “RDS” (que demonstra no display do aparelho receptor o nome da rádio e futuramente os nomes das músicas executadas), recurso que só agora está equipando os receptores automotivos e domésticos. </p>
         </div>
 
     </div>
 </section>
+
+
+<script th:src="@{/js/bandeiras.js}"></script>
 
 <!-- Include footer -->
 <th:block th:insert="pages/components/footer"></th:block>

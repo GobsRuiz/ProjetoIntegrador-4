@@ -34,5 +34,5 @@ public class AdministradorImplementsService implements AdministradorService{
     @Override
     public void delete(Long id) {
 		repository.deleteById(id);
-	}
+    }
 }

@@ -93,6 +93,13 @@ public class DashAutorController {
         attributes.addFlashAttribute("success", "Autor deletado com sucesso!");
 
         autorService.delete(id);
+        // Boolean autor = Boolean.parseBoolean("true");
+        // if(){
+        //     Equipe equipe = equipeService.findById(id);
+        //     equipe.setFuncao_autor("nao");
+        //     equipeService.save(equipe);
+        // }
+
         return "redirect:/dashboard/autores";
     }
 }

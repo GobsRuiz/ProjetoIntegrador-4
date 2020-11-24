@@ -5,16 +5,21 @@
         <th:block th:insert="dashboard/components/navegacao"></th:block>
 
         <main>
-            <h1>
-                Equipe
-            </h1>
+            <div class="">
+                <h1>
+                    Equipe
+                </h1>
 
-            <br>
+                <button>
+                    Adicionar membro
+                </button>
+            </div>
+
             <br>
             <span id="alerta" th:text="${success}"></span>
             <br>
-            <br>
 
+            <!-- Table -->
             <div th:each="equipe : ${equipes}">
                 <p>
                     Nome: <span th:text="${equipe.name}"></span>
@@ -65,9 +70,10 @@
                 Cadastrar
             </h1>
 
-            <form action="/dashboard/equipe/cadastrar" method="post" enctype="multipart/form-data">
+            <form action="/dashboard/equipe/cadastrar" method="post" enctype="multipart/form-data" class="form">
                 <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
-                <input type="file" id="imageFile" name="imageFile" required>
+                <input type="file" id="imageFile" name="imageFile" class="input-file">
+
                 <select name="funcao" id="" required>
                     <option value="Locutor">
                         Locutor
@@ -78,9 +84,9 @@
                     <option value="Repórter">
                         Repórter
                     </option>
-                </select>
+                </select>   
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>

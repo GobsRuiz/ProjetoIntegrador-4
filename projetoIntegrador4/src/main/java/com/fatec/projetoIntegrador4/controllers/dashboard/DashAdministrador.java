@@ -56,7 +56,7 @@ public class DashAdministrador {
         }else{
             attributes.addFlashAttribute("success", "Administrador adicionado com sucesso!");
         }
-
+        
         administradorService.save(administrador);
         return "redirect:/dashboard/administradores";
     }

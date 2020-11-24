@@ -1,0 +1,12 @@
+.form{
+}
+input, select {
+    width: 200px;
+
+    padding: 10px;
+
+    margin: 10px 0;
+}
+.input-file{
+    padding: 0;
+}
