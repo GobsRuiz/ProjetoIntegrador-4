@@ -10,7 +10,7 @@
                     Equipe
                 </h1>
 
-                <button>
+                <button class="btn btn-warning">
                     Adicionar membro
                 </button>
             </div>
@@ -38,19 +38,11 @@
                 <div>
                     <a th:href="@{/dashboard/equipe/detalhes/{id}(id=${equipe.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/equipe/editar/{id}(id=${equipe.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/equipe/deletar/{id}(id=${equipe.id})}">
                         Deletar
@@ -84,7 +76,7 @@
                     <option value="Repórter">
                         Repórter
                     </option>
-                </select>   
+                </select>
 
                 <button class="btn btn-primary">
                     Enviar

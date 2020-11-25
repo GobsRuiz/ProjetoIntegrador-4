@@ -28,19 +28,11 @@
                 <div>
                     <a th:href="@{/dashboard/musicas/detalhes/{id}(id=${musica.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/musicas/editar/{id}(id=${musica.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/musicas/deletar/{id}(id=${musica.id})}">
                         Deletar
@@ -67,14 +59,14 @@
                     </option>
                 </select>
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>
 
             <br>
         </main>
-    
+
     </div>
 </div>
 <th:block th:insert="dashboard/components/footer"></th:block>

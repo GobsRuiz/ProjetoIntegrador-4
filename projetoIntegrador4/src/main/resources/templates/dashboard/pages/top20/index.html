@@ -29,19 +29,11 @@
                 <div>
                     <a th:href="@{/dashboard/top20/detalhes/{id}(id=${top20.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/top20/editar/{id}(id=${top20.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/top20/deletar/{id}(id=${top20.id})}">
                         Deletar
@@ -66,14 +58,14 @@
                     <option th:each="musica : ${musicas}" th:if="${musica.top20 == 'nao'}" th:value="${musica.id}" th:text="${musica.name}"></option>
                 </select>
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>
 
             <br>
         </main>
-    
+
     </div>
 </div>
 

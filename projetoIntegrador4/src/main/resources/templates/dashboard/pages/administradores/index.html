@@ -20,24 +20,17 @@
                     Nome: <span th:text="${adm.name}"></span>
                 </p>
 
+
                 <br>
 
                 <div>
                     <a th:href="@{/dashboard/administradores/detalhes/{id}(id=${adm.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/administradores/editar/{id}(id=${adm.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/administradores/deletar/{id}(id=${adm.id})}">
                         Deletar
@@ -58,10 +51,12 @@
             </h1>
 
             <form action="/dashboard/administradores/cadastrar" method="post">
-                <input type="text" name="name" placeholder="Nome" minlength="3" maxlength="50" required>
+                <label for="name">Nome:</label>
+                <input type="text" name="name" minlength="3" maxlength="50" required>
+                <label for="password">Senha:</label>
                 <input type="password" name="password" minlength="3" maxlength="50" required>
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>
@@ -70,4 +65,5 @@
         </main>
     </div>
 </div>
+
 <th:block th:insert="dashboard/components/footer"></th:block>

@@ -39,19 +39,11 @@
                 <div>
                     <a th:href="@{/dashboard/noticias/detalhes/{id}(id=${noticia.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/noticias/editar/{id}(id=${noticia.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/noticias/deletar/{id}(id=${noticia.id})}">
                         Deletar
@@ -73,13 +65,13 @@
 
             <form action="/dashboard/noticias/cadastrar" method="post" enctype="multipart/form-data">
                 <input type="text" name="titulo" placeholder="Título" minlength="3" maxlength="50" required>
-                <textarea name="texto" id="" cols="30" rows="10" minlength="30" maxlength="3000"  required></textarea>
+                <textarea name="texto" id="" cols="30" rows="10" minlength="30" maxlength="3000" required></textarea>
                 <input type="file" id="imageFile" name="imageFile" required>
                 <select name="autor_id" id="" required>
                     <option th:each="autor : ${autores}" th:value="${autor.id}" th:text="${autor.equipe.name}"></option>
                 </select>
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>

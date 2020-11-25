@@ -12,7 +12,7 @@
     <div>
         <form th:action="@{/dashboard/programas/update/{id}(id=${programa.id})}" th:object="${programa}" method="post">
             <input type="text" th:field="*{name}" placeholder="Nome" minlength="3" maxlength="50" required>
-           
+
             <select th:field="*{equipe}" id="">
                 <option th:each="equipe : ${equipes}" th:if="${equipe.funcao == 'Locutor'}" th:value="${equipe.id}" th:text="${equipe.name}">
                 </option>
@@ -53,7 +53,7 @@
                 </option>
             </select>
 
-            <button>
+            <button class="btn btn-success">
                 Enviar
             </button>
         </form>

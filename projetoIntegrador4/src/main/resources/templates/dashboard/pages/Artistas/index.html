@@ -33,19 +33,11 @@
                 <div>
                     <a th:href="@{/dashboard/artistas/detalhes/{id}(id=${artista.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/artistas/editar/{id}(id=${artista.id})}">
                         Editar
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/artistas/deletar/{id}(id=${artista.id})}">
                         Deletar
@@ -82,8 +74,8 @@
                         Pagode/Samba
                     </option>
                 </select>
-                
-                <button>
+
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>

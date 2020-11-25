@@ -4,7 +4,7 @@
     <a href="/dashboard/equipe">
         Voltar
     </a>
-    
+
 
     <h1>
         Editar membro da equipe: <span th:text="${equipe.id}"></span>
@@ -19,8 +19,8 @@
     <div>
         <form th:action="@{/dashboard/equipe/update/{id}(id=${equipe.id})}" th:object="${equipe}" method="POST" enctype="multipart/form-data">
             <input type="text" th:field="*{name}" minlength="3" maxlength="50" required>
-            <input type="text" th:field="*{funcao_autor}" minlength="3" maxlength="50" required hidden> 
-            
+            <input type="text" th:field="*{funcao_autor}" minlength="3" maxlength="50" required hidden>
+
             <br>
             <br>
             <br>
@@ -45,7 +45,7 @@
                 </option>
             </select>
 
-            <button>
+            <button class="btn btn-success">
                 Enviar
             </button>
         </form>

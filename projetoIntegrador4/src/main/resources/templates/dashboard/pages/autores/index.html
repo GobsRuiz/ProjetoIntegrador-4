@@ -28,16 +28,12 @@
                 <div>
                     <a th:href="@{/dashboard/autores/detalhes/{id}(id=${autor.id})}">
                         Detalhes
-                    </a>
-
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
+                    </a> &nbsp; &nbsp; &nbsp;
 
                     <a th:href="@{/dashboard/autores/deletar/{id}(id=${autor.id})}">
                         Deletar
                     </a>
-                </div>   
+                </div>
 
                 <br>
                 <br>
@@ -53,7 +49,7 @@
                         </option>
                 </select>
 
-                <button>
+                <button class="btn btn-primary">
                     Enviar
                 </button>
             </form>
