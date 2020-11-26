@@ -112,7 +112,7 @@
 </section>
 <div class="container">
 
-    <div class="noticia-slider-noticias-cards" id="index-noticia" th:if="${noticias.size() > 3}">
+    <div class="noticia-slider-noticias-cards" id="index-noticia" th:if="${noticias.size() > 2}">
         <div th:each="i : ${#numbers.sequence( 0, 2)}" class="noticia-slider-card">
             <div class="noticia-slider-card-header">
             </div>
@@ -125,7 +125,7 @@
                 </div>
 
                 <div>
-                    <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                    <a th:href="@{/noticias/{titulo}/{id}(titulo=${noticias[i].titulo}, id=${noticias[i].id})}" class="blog-post-read noticia-slider-card-button">Ler mais</a>
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
                     </div>
 
                     <div>
-                        <a href="noticias.html" class="blog-post-read noticia-slider-card-button">Ler mais</a>
+                        <a th:href="@{/noticias/{titulo}/{id}(titulo=${noticias[i].titulo}, id=${noticias[i].id})}" class="blog-post-read noticia-slider-card-button">Ler mais</a>
                     </div>
                 </div>
             </div>
