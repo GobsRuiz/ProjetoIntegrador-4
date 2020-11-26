@@ -76,12 +76,7 @@
 
                 <input type="text" name="estilo" placeholder="Estilo" minlength="3" maxlength="50" required>
 
-                <select name="horario" id="" required>
-                    <option th:each="i : ${#numbers.sequence( 0, 9)}" th:text="'0' + ${i} + ':00'" th:value="'0' + ${i} + ':00'">
-                    </option>
-                    <option th:each="i : ${#numbers.sequence( 10, 23)}" th:text="${i} + ':00'" th:value="${i} + ':00'">
-                    </option>
-                </select>
+                <input type="text" name="horario">
 
                 <select name="periodo" id="" required>
                     <option value="Matutino">
