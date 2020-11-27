@@ -1,6 +1,6 @@
 // Página notícias
-var noticias_texto = document.querySelectorAll(".noticia-slider-card-texto");
-var noticias_titulo = document.querySelectorAll(".noticia-slider-card-titulo");
+var noticias_texto = document.querySelectorAll(".textolimite");
+var noticias_titulo = document.querySelectorAll(".titulolimite");
 
 
 noticias_texto.forEach(element => {
